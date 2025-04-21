@@ -1,0 +1,90 @@
+import React from 'react'
+import '@/css/ContactModal.css'
+import call from '@/images/call.png';
+import msg from '@/images/msg.png';
+
+const ContactModal = ({ setIsModal }) => {
+
+    const msgButton = (idx) => {
+        switch (idx) {
+            case 1:
+                window.location.href = "sms://전화번호";
+                break;
+            case 2:
+                window.location.href = "sms://전화번호";
+                break;
+            case 3:
+                window.location.href = "sms://전화번호";
+                break;
+            case 4:
+                window.location.href = "sms://전화번호";
+                break;
+            case 5:
+                window.location.href = "sms://전화번호";
+                break;
+            case 6:
+                window.location.href = "sms://전화번호";
+                break;
+            default:
+                window.location.href = "sms://전화번호";;
+        }
+    }
+
+
+    return (
+        <div onClick={setIsModal} className="modal-overlay">
+            <div onClick={(e) => e.stopPropagation()} className="modal">
+                <button onClick={() => setIsModal(false)} className="modal-close">
+                </button>
+                <div className='contactDiv'>
+                    <div>
+                        <div>신랑</div>
+                        <div>OOO</div>
+                        <img src={call} style={{ width: "20%", marginRight: "7px" }} />
+                        <img src={msg} style={{ width: "20%" }} onClick={() => msgButton("1")} />
+                    </div>
+                    <div>
+                        <div>신부</div>
+                        <div>OOO</div>
+                        <img src={call} style={{ width: "20%", marginRight: "7px" }} />
+                        <img src={msg} style={{ width: "20%" }} onClick={() => msgButton("2")} />
+                    </div>
+                </div>
+                <div className='contactDiv'>
+                    <div>
+                        <div>신랑 아버지</div>
+                        <div>OOO</div>
+                        <img src={call} style={{ width: "20%", marginRight: "7px" }} />
+                        <img src={msg} style={{ width: "20%" }} onClick={() => msgButton("3")} />
+                    </div>
+                    <div>
+                        <div>신부 아버지</div>
+                        <div>OOO</div>
+                        <img src={call} style={{ width: "20%", marginRight: "7px" }} />
+                        <img src={msg} style={{ width: "20%" }} onClick={() => msgButton("3")} />
+                    </div>
+                </div>
+                <div className='contactDiv'>
+                    <div>
+                        <div>신랑 어머니</div>
+                        <div>OOO</div>
+                        <img src={call} style={{ width: "20%", marginRight: "7px" }} />
+                        <img src={msg} style={{ width: "20%" }} onClick={() => msgButton("3")} />
+                    </div>
+                    <div>
+                        <div>신부 어머니</div>
+                        <div>OOO</div>
+                        <img src={call} style={{ width: "20%", marginRight: "7px" }} />
+                        <img src={msg} style={{ width: "20%" }} onClick={() => msgButton("3")} />
+                    </div>
+                </div>
+                {/* <img src={call} />
+                <img src={msg} /> */}
+
+
+            </div>
+        </div>
+    )
+}
+
+export default ContactModal
