@@ -1,0 +1,124 @@
+/* 전체 앱 정렬 */
+body,
+html,
+#root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.app-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* 화면 전체 높이 */
+    background-color: #333;
+}
+
+/* 청첩장 카드 */
+.invitation-container {
+    background: white;
+    padding: 30px;
+    /* border-radius: 20px; */
+    max-width: 400px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.main-img {
+    width: 100%;
+    height: 50vh;
+    margin-bottom: 10%;
+    background-size: cover;
+}
+
+.invitation-content {
+    padding: 24px;
+    text-align: center;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #e91e63;
+    margin: 20px 0px 20px;
+}
+
+.date {
+    color: #888;
+    margin-bottom: 16px;
+}
+
+.names {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.location {
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 20px;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn {
+    padding: 12px;
+    border-radius: 10px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+}
+
+.primary {
+    background-color: #e91e63;
+    color: #fff;
+}
+
+.secondary {
+    border: 2px solid #e91e63;
+    color: #e91e63;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 12px;
+    background-color: #d6006d;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    margin-top: 16px;
+}
+
+.btn-outline {
+    width: 100%;
+    padding: 12px;
+    background: white;
+    border: 2px solid #d6006d;
+    color: #d6006d;
+    font-weight: bold;
+    border-radius: 12px;
+    margin-top: 10px;
+}
+
+.title {
+    color: black;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 1.2em;
+    padding: 1%;
+}
+
+.title-name {
+    text-align: center;
+    letter-spacing: 0.15em;
+    
+}
