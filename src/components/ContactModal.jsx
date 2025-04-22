@@ -32,10 +32,8 @@ const ContactModal = ({ setIsModal }) => {
 
 
     return (
-        <div onClick={setIsModal} className="modal-overlay">
-            <div onClick={(e) => e.stopPropagation()} className="modal">
-                <button onClick={() => setIsModal(false)} className="modal-close">
-                </button>
+        <div onClick={()=>setIsModal(false)} className="modal-overlay">
+            <div onClick={(e) => e.stopPropagation()} className="contact-modal">
                 <div className='contactDiv'>
                     <div>
                         <div>신랑</div>

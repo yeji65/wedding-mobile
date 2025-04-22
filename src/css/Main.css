@@ -112,3 +112,38 @@ html,
     text-decoration-line: underline;
     text-underline-offset: 10px;
 }
+
+.profile {
+    display: flex;
+    justify-content: center;
+    padding-top: 80px;
+    gap: 20px;
+}
+
+.profile-img {
+    width: 37%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+
+.calendar-wrapper h3 {
+    text-decoration-line: underline;
+    text-underline-offset: 10px;
+    padding-bottom: 10%;
+}
+
+.calendar-wrapper p {
+    padding-bottom: 10%;
+}
+
+.content-directions h3{
+    padding-top: 20%;
+    text-decoration-line: underline;
+    text-underline-offset: 10px;
+}
+
+.content-directions p {
+    padding-top: 10%;
+}
