@@ -138,12 +138,80 @@ html,
     padding-bottom: 10%;
 }
 
-.content-directions h3{
+.content-directions h3:first-child {
     padding-top: 20%;
     text-decoration-line: underline;
     text-underline-offset: 10px;
 }
 
-.content-directions p {
+.content-directions p:first-child {
     padding-top: 10%;
 }
+
+.content-directions-text {
+    text-align: left;
+    padding-left: 5%;
+}
+
+.content-directions-box{
+    margin-top: 8%;
+}
+
+.content-directions-box span{
+    color: #ecb6b6;
+}
+
+.content-directions-box p {
+    text-align: left;
+    font-size: 0.8em;
+}
+
+.map-links {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: #fdfdfd;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.map-item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.map-links div:nth-child(2)::before,
+.map-links div:nth-child(2)::after {
+    content: "|";
+    color: #ddd;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.map-item:hover {
+    transform: scale(1.05);
+}
+
+.map-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+
+.map-label {
+    font-size: 14px;
+    color: #333;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.content-Communication p{
+    margin-top: 8%;
+}
+
+
+.content-container {
+    padding: 20px;
+  }
+  

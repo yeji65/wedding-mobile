@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import '@/css/Main.css'
 import '@/css/Calendar.css'
 import gifImage from '@/images/img.gif';
@@ -8,10 +8,21 @@ import profileImg1 from '@/images/profileImg1.jpg';
 import profileImg2 from '@/images/profileImg2.jpg';
 import Calendar from 'react-calendar';
 import Gallery from '@/components/Gallery';
+import Map from '@/components/Map';
+import naverMap from '@/images/naverMap.png';
+import kakaoNavi from '@/images/kakaoNavi.png';
+import tMap from '@/images/tMap.png';
+import car from '@/images/car.png';
+import bus from '@/images/bus.png';
+import subway from '@/images/subway.png';
+import parking from '@/images/parking.png';
+import CommunicationModal from '@/components/CommunicationModal';
 
 export const Main = () => {
 
   const [isModal, setIsModal] = useState(false)
+  const [isCommunicationModal, setIsCommunicationModal] = useState(false)
+
   const [selectedIndex, setSelectedIndex] = useState(null);
 
   const tileContent = ({ date, view }) => {
@@ -55,6 +66,23 @@ export const Main = () => {
     setSelectedIndex((prev) => (prev + 1) % images.length);
   };
 
+
+  const openMapLink = (appUrl, webUrl) => {
+    // 모바일인지 확인
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if (isMobile) {
+      window.location.href = appUrl;
+
+      // 앱이 없을 경우 대비: 2초 후 웹으로 fallback
+      setTimeout(() => {
+        window.location.href = webUrl;
+      }, 2000);
+    } else {
+      window.open(webUrl, "_blank");
+    }
+  };
+
+  
   return (
     <div className="app-container">
       <div className="invitation-container">
@@ -132,22 +160,93 @@ export const Main = () => {
             WI컨벤션 W홀<br />
             031-241-6000
           </p>
+          {/* <Map /> */}
+          <div className="map-links">
+            <div className="map-item"
+              onClick={() => openMapLink(
+                "nmap://place?id=37590335",
+                "https://map.naver.com/p/entry/place/37590335?c=15.00,0,0,0,dh"
+              )}>
+              <img className="map-icon" src={naverMap} />
+              <span className="map-label">네이버 지도</span>
+            </div>
+            <div className="map-item"
+              onClick={() => openMapLink(
+                "kakaonavi://navigate?name=WI컨벤션&x=127.0358725&y=37.2871678",
+                "https://kko.kakao.com/IbXR0A78YC"
+              )} >
+              <img className="map-icon" src={kakaoNavi} />
+              <span className="map-label">카카오 내비</span>
+            </div>
+            <div className="map-item"
+              onClick={() => openMapLink(
+                "tmap://route?goalname=WI컨벤션&goalx=127.0358725&goaly=37.2871678",
+                "https://www.tmap.co.kr/tmap2/mobile/retrievePoiDetail.do?searchKeyword=WI컨벤션"
+              )}>
+              <img className="map-icon" src={tMap} />
+              <span className="map-label">티맵</span>
+            </div>
+          </div>
+          <div className='content-directions-text'>
+            <div className='content-directions-box'>
+              {/* <img className="map-icon" src={car} /> */}
+              <span>WI컨벤션</span>
+              <p>경기도 수원시 팔달구 월드컵로 310 (우만동 258) 수원월드컵 경기장 내 </p>
+              <p>* 수원월드컵경기장 P7주차장 입력</p>
+              <p>* P6주차장은 혼주전용 주차장입니다.</p>
+            </div>
+            <div className='content-directions-box'>
+              {/* <img className="map-icon" src={parking} /> */}
+              <span> 주차</span>
+              <p>웨딩홀 P7 또는 P8주차장 이용</p>
+              <p>* P6주차장은 혼주전용 주차장입니다.</p>
+              <p>2시간 무료주차, 로비 태블릿 차량번호 입력</p>
+            </div>
+            <div className='content-directions-box'>
+              {/* <img className="map-icon" src={subway} /> */}
+              <span>지하철</span>
+              <p>[1호선] 수원역 하차 후 택시로 15-20분 이동</p>
+              <p>[수인분당선] 수원시청역 하차 후 택시로 10분 이동</p>
+            </div>
+            <div className='content-directions-box'>
+              {/* <img className="map-icon" src={bus} /> */}
+              <span>버스</span>
+              <p>[수원월드컵경기장, 동성중학교 하차]</p>
+              <p>80,99-2, 720-1, 1007-1, 3007, 3008, 4000, 4500,<br />
+                7000, 7001, 8800</p>
+              <p>[수원월드컵경기장, 아름학교 하차] </p>
+              <p> 13-4</p>
+              <p>* 셔틀버스 : 수인분단선 수원시청역 9번출구 앞 <br />
+                (정시기준 약 20분간격 운행)</p>
+            </div>
+          </div>
 
-          
+          <div className='content-Communication' >
+            <h3>참석 의사 전달</h3>
+            <p>축하의 마음으로 참석해주시는 <br />
+              모든 분들을 귀하게 모실 수 있도록 <br />
+              참석 의사를 전달 부탁드립니다.</p>
+            <button className="btn-outline" onClick={() => setIsCommunicationModal(isCommunicationModal => !isCommunicationModal)}>참석 의사 전달하기</button>
+          </div>
+
+    
         </div>
 
       </div>
 
       {isModal && <ContactModal setIsModal={setIsModal} />}
+      {isCommunicationModal && <CommunicationModal setIsCommunicationModal={setIsCommunicationModal} />}
 
-      {selectedIndex !== null && (
-        <div className="modal" >
-          <button className="arrow left" onClick={prevImage} disabled={selectedIndex == 0 ? true : false}>{'<'}</button>
-          <img src={images[selectedIndex]} onClick={(e) => e.stopPropagation()} alt="확대 이미지" />
-          <button className="arrow right" onClick={nextImage} disabled={selectedIndex == images.length - 1 ? true : false}>{'>'}</button>
-          <button className="modal-close" onClick={() => setSelectedIndex(null)}>✕</button>
-        </div>
-      )}
-    </div>
+      {
+        selectedIndex !== null && (
+          <div className="modal" >
+            <button className="arrow left" onClick={prevImage} disabled={selectedIndex == 0 ? true : false}>{'<'}</button>
+            <img src={images[selectedIndex]} onClick={(e) => e.stopPropagation()} alt="확대 이미지" />
+            <button className="arrow right" onClick={nextImage} disabled={selectedIndex == images.length - 1 ? true : false}>{'>'}</button>
+            <button className="modal-close" onClick={() => setSelectedIndex(null)}>✕</button>
+          </div>
+        )
+      }
+    </div >
   )
 }
