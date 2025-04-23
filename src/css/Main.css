@@ -153,11 +153,11 @@ html,
     padding-left: 5%;
 }
 
-.content-directions-box{
+.content-directions-box {
     margin-top: 8%;
 }
 
-.content-directions-box span{
+.content-directions-box span {
     color: #ecb6b6;
 }
 
@@ -206,12 +206,17 @@ html,
     font-family: 'Noto Sans KR', sans-serif;
 }
 
-.content-Communication p{
+.content-Communication h3 {
+    padding-top: 20%;
+    text-decoration-line: underline;
+    text-underline-offset: 10px;
+}
+
+.content-Communication p {
     margin-top: 8%;
 }
 
-
 .content-container {
     padding: 20px;
-  }
-  
+}
+

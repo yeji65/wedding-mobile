@@ -1,0 +1,63 @@
+.content-account h3 {
+    padding-top: 20%;
+    text-decoration-line: underline;
+    text-underline-offset: 10px;
+}
+
+.content-account p {
+    margin-top: 8%;
+    margin-bottom: 8%;
+}
+
+.accordion-box {
+    margin-bottom: 10px;
+}
+
+.accordion-header {
+    width: 70%;
+    background: #f0e9e6;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    display: flex;
+    justify-content: space-around;
+    cursor: pointer;
+    color: #4e4e4e;
+    margin: 0 auto;
+}
+
+.accordion-slide-wrapper {
+    overflow: hidden;
+    width: 70%;
+    transition: max-height 0.4s ease;
+    margin: 0 auto;
+}
+
+.accordion-inner {
+    padding-top: 5px;
+}
+
+.account-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 12px;
+    margin-top: 5px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    color: #444;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.copy-btn {
+    padding: 6px 10px;
+    border: none;
+    background: #f2e0da;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: #7b4d44;
+}

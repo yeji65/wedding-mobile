@@ -17,14 +17,26 @@ import bus from '@/images/bus.png';
 import subway from '@/images/subway.png';
 import parking from '@/images/parking.png';
 import CommunicationModal from '@/components/CommunicationModal';
+import AccordionSection from '@/components/AccordionSection';
+import { db } from "@/firebase";
+import { collection, query, where, getDocs } from "firebase/firestore";
 
 export const Main = () => {
 
+  //데이터
+  const [user, setUser] = useState([])
+
+  //연락처 모달
   const [isModal, setIsModal] = useState(false)
+
+  //참석여부 모달
   const [isCommunicationModal, setIsCommunicationModal] = useState(false)
 
+  //선택한 이미지 
   const [selectedIndex, setSelectedIndex] = useState(null);
 
+  /**********************  캘린더  ********************/
+  /****************************************************/
   const tileContent = ({ date, view }) => {
     if (view === 'month') {
       const isCircleDay =
@@ -52,8 +64,10 @@ export const Main = () => {
     return null;
   };
 
+  /****************************************************/
 
-  // 갤러리 
+  /**********************  갤러리  ********************/
+  /****************************************************/
   const images = [
     gifImage, profileImg1, gifImage, profileImg1, gifImage, profileImg1, gifImage, profileImg1, gifImage, profileImg1
   ];
@@ -66,7 +80,10 @@ export const Main = () => {
     setSelectedIndex((prev) => (prev + 1) % images.length);
   };
 
+  /****************************************************/
 
+  /***********************  지도  *********************/
+  /****************************************************/
   const openMapLink = (appUrl, webUrl) => {
     // 모바일인지 확인
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -81,8 +98,35 @@ export const Main = () => {
       window.open(webUrl, "_blank");
     }
   };
+  /****************************************************/
 
-  
+
+  //임시
+  const accounts = {
+    groom: [
+      { bank: '신한', number: '110-123-456789', name: '최재만' },
+      { bank: '신한', number: '110-123-456789', name: '최도현' },
+    ],
+    bride: [
+      { bank: '국민', number: '123-4567-8901', name: '김지은' },
+      { bank: '카카오', number: '3333-12-3456789', name: '박지현' },
+    ],
+  };
+
+  const fetchUsers = async () => {
+    // ... try, catch 생략
+    const usersCollectionRef = collection(db, 'users'); // 
+    const userSnap = await getDocs(usersCollectionRef); // 
+    const data = userSnap.docs?.map(doc => ({
+      ...doc.data(),
+    }));
+    setUser(data)
+  }
+  //데이터 불러오기
+  useEffect(() => {
+    fetchUsers()
+  }, [])
+
   return (
     <div className="app-container">
       <div className="invitation-container">
@@ -220,16 +264,31 @@ export const Main = () => {
                 (정시기준 약 20분간격 운행)</p>
             </div>
           </div>
+        </div>
 
-          <div className='content-Communication' >
-            <h3>참석 의사 전달</h3>
-            <p>축하의 마음으로 참석해주시는 <br />
-              모든 분들을 귀하게 모실 수 있도록 <br />
-              참석 의사를 전달 부탁드립니다.</p>
-            <button className="btn-outline" onClick={() => setIsCommunicationModal(isCommunicationModal => !isCommunicationModal)}>참석 의사 전달하기</button>
-          </div>
+        <div className='content-Communication' >
+          <h3>참석 의사 전달</h3>
+          <p>축하의 마음으로 참석해주시는 <br />
+            모든 분들을 귀하게 모실 수 있도록 <br />
+            참석 의사를 전달 부탁드립니다.</p>
+          <button className="btn-outline" onClick={() => setIsCommunicationModal(isCommunicationModal => !isCommunicationModal)}>참석 의사 전달하기</button>
+        </div>
 
-    
+        <div className="content-account">
+          <h3>마음 전하실 곳</h3>
+          <p>참석이 어려워 직접 축하를 전하지 못하는<br />
+            분들을 위해 계좌번호를 기재하였습니다.<br />
+            넓은 마음으로 양해 부탁드립니다. <br />
+            전해주시는 진심은 소중하게 간직하여 <br />
+            좋은 부부의 모습으로 보답하겠습니다.
+          </p>
+          <AccordionSection title="신랑측 계좌번호" list={accounts.groom} />
+          <AccordionSection title="신부측 계좌번호" list={accounts.bride} />
+        </div>
+
+
+        <div className="content-guestbook">
+          <h3>방명록</h3>
         </div>
 
       </div>
