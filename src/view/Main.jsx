@@ -3,7 +3,7 @@ import '@/css/Main.css'
 import '@/css/Calendar.css'
 import gifImage from '@/images/img.gif';
 import loveImage from '@/images/love.png';
-import ContactModal from '@/components/contactModal';
+import ContactModal from '@/components/ContactModal';
 import profileImg1 from '@/images/profileImg1.jpg';
 import profileImg2 from '@/images/profileImg2.jpg';
 import Calendar from 'react-calendar';
