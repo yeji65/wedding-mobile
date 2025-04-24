@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import '@/css/Communication.css'
+import '@/css/CommunicationModal.css'
 import { collection, addDoc } from "firebase/firestore";
 import { db } from '@/firebase';
 // firestore의 메서드 import

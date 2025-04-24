@@ -153,7 +153,7 @@ export const Main = () => {
         <img className="main-img" src={gifImage} style={{ padding: "100px 0px 20px" }} />
 
         <div className='content-invite'>
-          <h3>Invite you</h3>
+          <h3>초대합니다</h3>
           <p>서로가 마주보며 다져온 사랑을</p>
           <p>이제 함께 한 곳을 바라보며</p>
           <p>걸어갈 수 있는 큰 사랑으로 키우고자 합니다</p>
@@ -177,7 +177,7 @@ export const Main = () => {
 
 
         <div className="calendar-wrapper">
-          <h3>Calendar</h3>
+          <h3>일정</h3>
           <p>2026년 3월 28일 (토) 오전 11시 <br />
             Wi웨딩홀 W홀
           </p>

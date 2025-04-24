@@ -1,12 +1,9 @@
-.content-account h3 {
-    padding-top: 20%;
-    text-decoration-line: underline;
-    text-underline-offset: 10px;
-}
+
 
 .content-account p {
     margin-top: 8%;
     margin-bottom: 8%;
+    line-height: 25px;
 }
 
 .accordion-box {

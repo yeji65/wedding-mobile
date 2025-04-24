@@ -7,6 +7,19 @@ html,
     padding: 0;
 }
 
+body {
+    font-family: 'GangwonEdu_OTFBoldA';
+}
+
+
+
+@font-face {
+    font-family: 'GangwonEdu_OTFBoldA';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .app-container {
     display: flex;
     justify-content: center;
@@ -15,14 +28,19 @@ html,
     background-color: #333;
 }
 
+.app-container p {
+    color: #444547;
+}
+
 /* 청첩장 카드 */
 .invitation-container {
-    background: white;
+    /* background: white; */
     /* border-radius: 20px; */
     max-width: 400px;
     width: 100%;
     height: 100%;
     text-align: center;
+    background: url(@/images/bg.jpg)
 }
 
 .main-img {
@@ -79,11 +97,13 @@ html,
     width: 50%;
     padding: 12px;
     background: white;
-    border: 2px solid #928f8f;
-    color: #928f8f;
+    border: 2px solid #e5adad;
+    background-color: #e5adad;
+    color: white;
     font-weight: bold;
-    border-radius: 12px;
+    border-radius: 22px;
     margin-top: 10px;
+    font-family: 'GangwonEdu_OTFBold';
 }
 
 .title {
@@ -104,13 +124,15 @@ html,
     text-decoration-line: underline;
     text-underline-offset: 10px;
     padding-bottom: 7%;
+    color: #e59696;
 
 }
 
-.content-gallery {
+.content-gallery h3 {
     padding-top: 20%;
     text-decoration-line: underline;
     text-underline-offset: 10px;
+    color: #e59696;
 }
 
 .profile {
@@ -128,10 +150,12 @@ html,
 }
 
 
+
 .calendar-wrapper h3 {
     text-decoration-line: underline;
     text-underline-offset: 10px;
     padding-bottom: 10%;
+    color: #e59696;
 }
 
 .calendar-wrapper p {
@@ -139,13 +163,10 @@ html,
 }
 
 .content-directions h3:first-child {
-    padding-top: 20%;
+    padding: 20% 0 10% 0;
     text-decoration-line: underline;
     text-underline-offset: 10px;
-}
-
-.content-directions p:first-child {
-    padding-top: 10%;
+    color: #e59696;
 }
 
 .content-directions-text {
@@ -158,12 +179,12 @@ html,
 }
 
 .content-directions-box span {
-    color: #ecb6b6;
+    color: #e59696;
 }
 
 .content-directions-box p {
     text-align: left;
-    font-size: 0.8em;
+    font-size: 0.9em;
 }
 
 .map-links {
@@ -210,13 +231,21 @@ html,
     padding-top: 20%;
     text-decoration-line: underline;
     text-underline-offset: 10px;
+    color: #e59696;
 }
 
 .content-Communication p {
     margin-top: 8%;
+    line-height: 25px;
 }
 
 .content-container {
     padding: 20px;
 }
 
+.content-account h3 {
+    padding-top: 20%;
+    text-decoration-line: underline;
+    text-underline-offset: 10px;
+    color: #e59696;
+}
