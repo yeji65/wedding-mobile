@@ -23,7 +23,8 @@ body {
     justify-content: center;
     align-items: center;
     /* 화면 전체 높이 */
-    background-color: #333;
+    background:url(@/images/bg.jpg);
+    overflow-x: hidden;
 }
 
 .app-container p {
@@ -40,6 +41,49 @@ body {
     text-align: center;
     background: url(@/images/bg.jpg)
 }
+
+
+
+/* 앱 전체 배경 및 중앙 정렬 */
+.app-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background: url('/images/bg.jpg') no-repeat center center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 청첩장 카드 영역 */
+.invitation-container {
+    max-width: 400px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+/* 인트로 전체 오버레이 */
+.wedding-intro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
 
 .main-img {
     width: 100%;
