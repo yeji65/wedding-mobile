@@ -22,6 +22,7 @@ import { db } from "@/firebase";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import FadeInSection from '@/components/FadeInSection';
 import GuestBook from '@/components/GuestBook';
+import CommunicationSubModal from '@/components/CommunicationSubModal';
 
 export const Main = () => {
 
@@ -33,6 +34,8 @@ export const Main = () => {
 
   //참석여부 모달
   const [isCommunicationModal, setIsCommunicationModal] = useState(false)
+
+  const [isCommunicationSubModal, setIsCommunicationSubModal] = useState(true)
 
   //선택한 이미지 
   const [selectedIndex, setSelectedIndex] = useState(null);
@@ -114,7 +117,6 @@ export const Main = () => {
       { bank: '카카오', number: '3333-12-3456789', name: '박지현' },
     ],
   };
-
   const fetchUsers = async () => {
     // ... try, catch 생략
     const usersCollectionRef = collection(db, 'users'); // 
@@ -134,13 +136,13 @@ export const Main = () => {
       <div className="invitation-container">
         <p style={{ fontWeight: 100 }}>WEDDING INVITATION</p>
         <div className="title">
-          <div className="title-name">홍길동</div>
+          <div className="title-name">{user[0]?.name}</div>
           <div className="title-div">&</div>
-          <div className="title-name">이몽룡</div>
+          <div className="title-name">{user[3]?.name}</div>
         </div>
         <img className="main-img" src={gifImage} />
         <p>2026년 3월 28일 (토) 오전 11시</p>
-        <h3>홍길동 & 이몽룡</h3>
+        <h3>{user[0]?.name + " & " + user[3]?.name}</h3>
         <p>Wi컨벤션 W홀</p>
         <FadeInSection>
           <div>
@@ -305,9 +307,12 @@ export const Main = () => {
           </div>
         </FadeInSection>
       </div >
-
       {isModal && <ContactModal setIsModal={setIsModal} />}
       {isCommunicationModal && <CommunicationModal setIsCommunicationModal={setIsCommunicationModal} />}
+      {isCommunicationSubModal && <CommunicationSubModal 
+      setIsCommunicationSubModal={setIsCommunicationSubModal} 
+      setIsCommunicationModal={setIsCommunicationModal}
+      user={user} />}
 
       {
         selectedIndex !== null && (
