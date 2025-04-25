@@ -21,7 +21,7 @@ const WeddingIntro = ({ onFinished }) => {
                 const cursorInterval = setInterval(() => {
                     setShowCursor((prev) => !prev);
                     blinkCount++;
-                    if (blinkCount >= 6) {
+                    if (blinkCount >= 4) {
                         clearInterval(cursorInterval);
                         setFadeOut(true); // 페이드아웃 시작
                         setTimeout(() => {
