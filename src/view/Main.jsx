@@ -21,6 +21,7 @@ import AccordionSection from '@/components/AccordionSection';
 import { db } from "@/firebase";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import FadeInSection from '@/components/FadeInSection';
+import GuestBook from '@/components/GuestBook';
 
 export const Main = () => {
 
@@ -300,6 +301,7 @@ export const Main = () => {
         <FadeInSection>
           <div className="content-guestbook">
             <h3>방명록</h3>
+            <GuestBook />
           </div>
         </FadeInSection>
       </div >

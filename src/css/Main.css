@@ -11,8 +11,6 @@ body {
     font-family: 'GangwonEdu_OTFBoldA';
 }
 
-
-
 @font-face {
     font-family: 'GangwonEdu_OTFBoldA';
     src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
@@ -244,6 +242,13 @@ body {
 }
 
 .content-account h3 {
+    padding-top: 20%;
+    text-decoration-line: underline;
+    text-underline-offset: 10px;
+    color: #e59696;
+}
+
+.content-guestbook h3{
     padding-top: 20%;
     text-decoration-line: underline;
     text-underline-offset: 10px;
