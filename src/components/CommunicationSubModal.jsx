@@ -4,10 +4,9 @@ import '@/css/CommunicationSubModal.css'
 
 const CommunicationSubModal = ({ setIsCommunicationSubModal, setIsCommunicationModal, user }) => {
     return (
-        <div className="modal-overlay">
-            <div className="modal-box">
+        <div className="modal-overlay"  onClick={() => setIsCommunicationSubModal(false)}>
+            <div className="modal-box" onClick={(e) => e.stopPropagation()} >
                 <h3>참석 의사 전달</h3>
-                <button className="modal-close" onClick={() => setIsCommunicationSubModal(false)}>×</button>
                 <p className='underline-text '>축하의 마음으로 참석해주시는<br />
                     모든 분들을 귀하게 모실 수 있도록 <br />
                     참석 의사를 전달 부탁드립니다.</p>
