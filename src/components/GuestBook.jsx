@@ -6,17 +6,25 @@ import { db } from '@/firebase';
 const GuestBook = () => {
 
     const [boardData, setBoardData] = useState([])
-
     const search = async () => {
         let docs = await getDocs(collection(db, 'board'));
         let tmp = []
         docs.forEach((doc) => {
             tmp.push(doc.data())
-            tmp = tmp.sort((a, b) => b.date - a.date)
-            console.log
-            setBoardData(tmp)
-
         });
+
+        const sortedData = tmp.sort((a, b) => {
+            const fixDateFormat = (str) => {
+                const [year, month, dayAndTime] = str.split('/');
+                const [day, time] = dayAndTime.split(' ');
+                return `20${year}-${month}-${day}T${time}`;
+            };
+
+            const dateA = new Date(fixDateFormat(a.date));
+            const dateB = new Date(fixDateFormat(b.date));
+            return dateB - dateA;
+        });
+        setBoardData(sortedData)
     }
 
     useEffect(() => {
@@ -33,14 +41,35 @@ const GuestBook = () => {
         setInputPassword('');
         setShowPasswordModal(true);
         setSelectedData(post)
+        setMode('U')
+
     };
 
+    const handleDelClick = (post) => {
+        setInputPassword('');
+        setMode('D')
+        setShowPasswordModal(true);
+        setSelectedData(post)
+    };
 
     const handlePasswordConfirm = () => {
         if (inputPassword === selectedData.password) {
-            setMode('U')
             setShowPasswordModal(false);
+            if (mode == "D") {
+                try {
+                    const postRef = doc(db, "board", "board_" + selectedData.id);
+                    deleteDoc(postRef);
+                    search()
+                    alert("게시글이 삭제되었습니다.");
+                    setSelectedData({})
+                    setMode('R')
+                } catch (error) {
+                    alert("삭제에 실패했습니다. 다시 시도해주세요.");
+                }
+            }
         } else {
+            setMode('R')
+            setShowPasswordModal(false);
             alert('비밀번호가 일치하지 않습니다.');
         }
     };
@@ -52,7 +81,7 @@ const GuestBook = () => {
     const hour = String(now.getHours()).padStart(2, '0'); // '10'
     const minute = String(now.getMinutes()).padStart(2, '0'); // '30'
 
-    const formatted = `${year}-${month}-${day} ${hour}:${minute}`;
+    const formatted = `${year}/${month}/${day} ${hour}:${minute}`;
 
     const confirmEdit = () => {
         try {
@@ -104,16 +133,7 @@ const GuestBook = () => {
         setSelectedData({})
     };
 
-    const handleDelClick = (post) => {
-        try {
-            const postRef = doc(db, "board", "board_" + post.id);
-            deleteDoc(postRef);
-            search()
-            alert("게시글이 삭제되었습니다.");
-        } catch (error) {
-            alert("삭제에 실패했습니다. 다시 시도해주세요.");
-        }
-    };
+
 
     return (
         <div className="container">

@@ -1,6 +1,6 @@
 .container {
   margin: 40px auto;
-  padding: 16px;
+  /* padding: 16px; */
   border-radius: 12px;
 }
 
@@ -14,6 +14,7 @@
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  color: #444547;
 }
 
 .board {
@@ -97,7 +98,7 @@
 .input-row {
   display: flex;
   align-items: flex-start;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .input-row label {
@@ -145,9 +146,10 @@
   border: none;
   border-radius: 6px;
   width: 35%;
-  padding-top: 5px;
   color: #444547;
   font-family: 'GangwonEdu_OTFBoldA';
+  height: 30px;
+  padding-top: 5px;
 }
 
 .pwCheck {

@@ -131,6 +131,14 @@ export const Main = () => {
     fetchUsers()
   }, [])
 
+  useEffect(() => {
+    if (isCommunicationSubModal || isModal || isCommunicationModal) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isCommunicationSubModal, isModal, isCommunicationModal]);
+
   return (
     <div className="app-container">
       <div className="invitation-container">
@@ -143,7 +151,7 @@ export const Main = () => {
         <img className="main-img" src={gifImage} />
         <p>2026년 3월 28일 (토) 오전 11시</p>
         <h3>{user[0]?.name + " & " + user[3]?.name}</h3>
-        <p>Wi컨벤션 W홀</p>
+        <p>WI컨벤션 W홀</p>
         <FadeInSection>
           <div>
             <img style={{ width: "25px", padding: "100px 0px 20px" }} src={loveImage} />
@@ -309,10 +317,10 @@ export const Main = () => {
       </div >
       {isModal && <ContactModal setIsModal={setIsModal} />}
       {isCommunicationModal && <CommunicationModal setIsCommunicationModal={setIsCommunicationModal} />}
-      {isCommunicationSubModal && <CommunicationSubModal 
-      setIsCommunicationSubModal={setIsCommunicationSubModal} 
-      setIsCommunicationModal={setIsCommunicationModal}
-      user={user} />}
+      {isCommunicationSubModal && <CommunicationSubModal
+        setIsCommunicationSubModal={setIsCommunicationSubModal}
+        setIsCommunicationModal={setIsCommunicationModal}
+        user={user} />}
 
       {
         selectedIndex !== null && (

@@ -66,6 +66,7 @@
     border-radius: 10px;
     font-size: 0.95rem;
     cursor: pointer;
+    color: #444547;
   }
   
   .toggle-button button.active {
