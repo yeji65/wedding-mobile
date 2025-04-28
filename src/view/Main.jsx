@@ -23,6 +23,7 @@ import { collection, query, where, getDocs } from "firebase/firestore";
 import FadeInSection from '@/components/FadeInSection';
 import GuestBook from '@/components/GuestBook';
 import CommunicationSubModal from '@/components/CommunicationSubModal';
+import PasswordModal from '@/components/PasswordModal';
 
 export const Main = () => {
 
@@ -39,6 +40,11 @@ export const Main = () => {
 
   //선택한 이미지 
   const [selectedIndex, setSelectedIndex] = useState(null);
+
+  //방명록
+  const [showPasswordModal, setShowPasswordModal] = useState({ mode: "", state: false });
+  const [mode, setMode] = useState('R')
+  const [selectedData, setSelectedData] = useState({})
 
   /**********************  캘린더  ********************/
   /****************************************************/
@@ -105,7 +111,6 @@ export const Main = () => {
   };
   /****************************************************/
 
-
   //임시
   const accounts = {
     groom: [
@@ -131,13 +136,14 @@ export const Main = () => {
     fetchUsers()
   }, [])
 
+  //팝업 true일경우 스크롤 금지
   useEffect(() => {
-    if (isCommunicationSubModal || isModal || isCommunicationModal) {
+    if (isCommunicationSubModal || isModal || isCommunicationModal || showPasswordModal.state) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
     }
-  }, [isCommunicationSubModal, isModal, isCommunicationModal]);
+  }, [isCommunicationSubModal, isModal, isCommunicationModal, showPasswordModal.state]);
 
   return (
     <div className="app-container">
@@ -311,7 +317,12 @@ export const Main = () => {
         <FadeInSection>
           <div className="content-guestbook">
             <h3>방명록</h3>
-            <GuestBook />
+            <GuestBook setShowPasswordModal={setShowPasswordModal}
+              mode={mode}
+              setMode={setMode}
+              setSelectedData={setSelectedData}
+              selectedData={selectedData}
+            />
           </div>
         </FadeInSection>
       </div >
@@ -332,6 +343,14 @@ export const Main = () => {
           </div>
         )
       }
+
+      {/* 비밀번호 모달 */}
+      {showPasswordModal.state && <PasswordModal
+        setShowPasswordModal={setShowPasswordModal}
+        showPasswordModal={showPasswordModal}
+        setMode={setMode}
+        mode={mode}
+        selectedData={selectedData} />}
     </div >
   )
 }
