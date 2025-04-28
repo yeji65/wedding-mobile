@@ -3,8 +3,7 @@ import '@/css/GuestBook.css'
 import { collection, getDoc, getDocs, addDoc, updateDoc, doc, deleteDoc, setDoc } from "firebase/firestore";
 import { db } from '@/firebase';
 
-const GuestBook = () => {
-
+const GuestBook = ({ setSelectedData, selectedData, mode, setMode, setShowPasswordModal, setInputPassword,}) => {
     const [boardData, setBoardData] = useState([])
     const search = async () => {
         let docs = await getDocs(collection(db, 'board'));
@@ -31,48 +30,31 @@ const GuestBook = () => {
         search()
     }, [])
 
-    const [mode, setMode] = useState('R')
     const [editText, setEditText] = useState({ name: '', content: '', password: '' });
-    const [showPasswordModal, setShowPasswordModal] = useState(false);
-    const [inputPassword, setInputPassword] = useState('');
-    const [selectedData, setSelectedData] = useState({})
 
     const handleEditClick = (post) => {
-        setInputPassword('');
-        setShowPasswordModal(true);
+        setShowPasswordModal({ mode: "U", state: true });
         setSelectedData(post)
-        setMode('U')
-
     };
 
     const handleDelClick = (post) => {
-        setInputPassword('');
-        setMode('D')
-        setShowPasswordModal(true);
+        setShowPasswordModal({ mode: "D", state: true });
         setSelectedData(post)
     };
 
-    const handlePasswordConfirm = () => {
-        if (inputPassword === selectedData.password) {
-            setShowPasswordModal(false);
-            if (mode == "D") {
-                try {
-                    const postRef = doc(db, "board", "board_" + selectedData.id);
-                    deleteDoc(postRef);
-                    search()
-                    alert("게시글이 삭제되었습니다.");
-                    setSelectedData({})
-                    setMode('R')
-                } catch (error) {
-                    alert("삭제에 실패했습니다. 다시 시도해주세요.");
-                }
+    useEffect(() => {
+        if (mode == "D")
+            try {
+                const postRef = doc(db, "board", "board_" + selectedData.id);
+                deleteDoc(postRef);
+                search()
+                setMode("R")
+                alert("게시글이 삭제되었습니다.");
+            } catch (error) {
+                alert("삭제에 실패했습니다. 다시 시도해주세요.");
             }
-        } else {
-            setMode('R')
-            setShowPasswordModal(false);
-            alert('비밀번호가 일치하지 않습니다.');
-        }
-    };
+    }, [mode])
+
 
     const now = new Date();
     const year = String(now.getFullYear()).slice(2); // '25'
@@ -235,24 +217,6 @@ const GuestBook = () => {
                     : null}
             </div>
 
-            {/* 비밀번호 모달 */}
-            {showPasswordModal && (
-                <div className="pwCheck">
-                    <div className="pwCheck-box">
-                        <h4>비밀번호 확인</h4>
-                        <input
-                            type="password"
-                            placeholder="비밀번호 입력"
-                            value={inputPassword}
-                            onChange={(e) => setInputPassword(e.target.value)}
-                        />
-                        <div className="button-row">
-                            <button onClick={handlePasswordConfirm}>확인</button>
-                            <button onClick={() => setShowPasswordModal(false)}>취소</button>
-                        </div>
-                    </div>
-                </div>
-            )}
         </div>
     );
 }
