@@ -128,7 +128,10 @@
   outline: none;
   line-height: 28px;
   height: 84px;
-  background-image: linear-gradient(to bottom, #aaa 1px, transparent 1px);
+  background-image: linear-gradient(to bottom, 
+  transparent 23px,
+  #aaa 25px,
+  transparent 1px);
   background-size: 100% 28px;
   background-repeat: repeat-y;
 }
