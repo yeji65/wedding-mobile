@@ -12,7 +12,7 @@ function App() {
   return (
     <div>
       {showIntro && <WeddingIntro onFinished={handleIntroFinished} />}
-      <Main />
+      <Main showIntro={showIntro}/>
     </div>
   )
 }

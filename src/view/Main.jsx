@@ -32,7 +32,7 @@ import sample5 from '@/images/sample5.jpg';
 import sample6 from '@/images/sample6.jpg';
 import sample7 from '@/images/sample7.jpg';
 import sample8 from '@/images/sample8.jpg';
-export const Main = () => {
+export const Main = ({showIntro}) => {
 
   //데이터
   const [user, setUser] = useState([])
@@ -145,12 +145,12 @@ export const Main = () => {
 
   //팝업 true일경우 스크롤 금지
   useEffect(() => {
-    if (isCommunicationSubModal || isModal || isCommunicationModal || showPasswordModal.state) {
+    if (isCommunicationSubModal || isModal || isCommunicationModal || showPasswordModal.state || showIntro) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
     }
-  }, [isCommunicationSubModal, isModal, isCommunicationModal, showPasswordModal.state]);
+  }, [isCommunicationSubModal, isModal, isCommunicationModal, showPasswordModal.state,showIntro]);
 
   return (
     <div className="app-container">
