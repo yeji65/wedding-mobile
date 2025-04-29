@@ -32,33 +32,34 @@ const ContactModal = ({ setIsModal }) => {
 
 
     return (
-        <div onClick={()=>setIsModal(false)} className="modal-overlay">
+        <div className="modal-overlay">
+            <button className="modal-close" onClick={() => setIsModal(false)}>×</button>
             <div onClick={(e) => e.stopPropagation()} className="contact-modal">
                 <div className='contactDiv'>
                     <div>
                         <div>신랑</div>
                         <div>OOO</div>
-                        <img src={call} style={{ width: "20%", marginRight: "7px" }} onClick={() => window.location.href = `tel:전화번호`}/>
-                        <img src={msg} style={{ width: "20%" }} onClick={() => window.location.href = `sms:전화번호`}/>
+                        <img src={call} style={{ width: "20%", marginRight: "7px" }} onClick={() => window.location.href = `tel:전화번호`} />
+                        <img src={msg} style={{ width: "20%" }} onClick={() => window.location.href = `sms:전화번호`} />
                     </div>
                     <div>
                         <div>신부</div>
                         <div>OOO</div>
-                        <img src={call} style={{ width: "20%", marginRight: "7px" }} onClick={() => window.location.href = `tel:전화번호`}/>
-                        <img src={msg} style={{ width: "20%" }} onClick={() => window.location.href = `sms:전화번호`}/>
+                        <img src={call} style={{ width: "20%", marginRight: "7px" }} onClick={() => window.location.href = `tel:전화번호`} />
+                        <img src={msg} style={{ width: "20%" }} onClick={() => window.location.href = `sms:전화번호`} />
                     </div>
                 </div>
                 <div className='contactDiv'>
                     <div>
                         <div>신랑 아버지</div>
                         <div>OOO</div>
-                        <img src={call} style={{ width: "20%", marginRight: "7px" }} onClick={() => window.location.href = `tel:전화번호`}/>
-                        <img src={msg} style={{ width: "20%" }}  onClick={() => window.location.href = `sms:전화번호`}/>
+                        <img src={call} style={{ width: "20%", marginRight: "7px" }} onClick={() => window.location.href = `tel:전화번호`} />
+                        <img src={msg} style={{ width: "20%" }} onClick={() => window.location.href = `sms:전화번호`} />
                     </div>
                     <div>
                         <div>신부 아버지</div>
                         <div>OOO</div>
-                        <img src={call} style={{ width: "20%", marginRight: "7px" }} onClick={() => window.location.href = `tel:전화번호`}/>
+                        <img src={call} style={{ width: "20%", marginRight: "7px" }} onClick={() => window.location.href = `tel:전화번호`} />
                         <img src={msg} style={{ width: "20%" }} onClick={() => window.location.href = `sms:전화번호`} />
                     </div>
                 </div>
@@ -66,14 +67,14 @@ const ContactModal = ({ setIsModal }) => {
                     <div>
                         <div>신랑 어머니</div>
                         <div>OOO</div>
-                        <img src={call} style={{ width: "20%", marginRight: "7px" }}  onClick={() => window.location.href = `tel:전화번호`}/>
-                        <img src={msg} style={{ width: "20%" }} onClick={() => window.location.href = `sms:전화번호`}/>
+                        <img src={call} style={{ width: "20%", marginRight: "7px" }} onClick={() => window.location.href = `tel:전화번호`} />
+                        <img src={msg} style={{ width: "20%" }} onClick={() => window.location.href = `sms:전화번호`} />
                     </div>
                     <div>
                         <div>신부 어머니</div>
                         <div>OOO</div>
-                        <img src={call} style={{ width: "20%", marginRight: "7px" }}  onClick={() => window.location.href = `tel:전화번호`}/>
-                        <img src={msg} style={{ width: "20%" }} onClick={() => window.location.href = `sms:전화번호`}/>
+                        <img src={call} style={{ width: "20%", marginRight: "7px" }} onClick={() => window.location.href = `tel:전화번호`} />
+                        <img src={msg} style={{ width: "20%" }} onClick={() => window.location.href = `sms:전화번호`} />
                     </div>
                 </div>
                 {/* <img src={call} />

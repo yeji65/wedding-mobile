@@ -12,7 +12,7 @@
 
 .accordion-header {
     width: 70%;
-    background: #f0e9e6;
+    background: #87626217;
     border: none;
     padding: 12px;
     border-radius: 10px;
@@ -52,7 +52,7 @@
 .copy-btn {
     padding: 6px 10px;
     border: none;
-    background: #f2e0da;
+    background: #87626217;
     border-radius: 6px;
     cursor: pointer;
     font-size: 0.85rem;

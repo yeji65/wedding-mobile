@@ -165,7 +165,7 @@ export const Main = ({showIntro}) => {
         <p>2026년 3월 28일 (토) 오전 11시</p>
         <p>WI컨벤션 W홀</p>
         <FadeInSection>
-          <div>
+          <div >
             <img style={{ width: "25px", padding: "100px 0px 20px" }} src={loveImage} />
             <p>어떤 이유로 만나 나와 사랑을 하고</p>
             <p>어떤 이유로 내게와 함께 있어 준 당신</p>
@@ -175,7 +175,7 @@ export const Main = ({showIntro}) => {
           </div>
         </FadeInSection>
         <FadeInSection>
-          <img className="main-img" src={gifImage} style={{ padding: "100px 0px 20px" }} />
+          <img className="main-img" src={sample8}  />
         </FadeInSection>
         <FadeInSection>
           <div className='content-invite'>
@@ -267,7 +267,7 @@ export const Main = ({showIntro}) => {
               <div className='content-directions-box'>
                 {/* <img className="map-icon" src={car} /> */}
                 <span>WI컨벤션</span>
-                <p>경기도 수원시 팔달구 월드컵로 310 (우만동 258) 수원월드컵 경기장 내 </p>
+                <p>경기도 수원시 팔달구 월드컵로 310 (우만동 258) <br />수원월드컵 경기장 내 </p>
                 <p>* 수원월드컵경기장 P7주차장 입력</p>
                 <p>* P6주차장은 혼주전용 주차장입니다.</p>
               </div>
@@ -279,22 +279,24 @@ export const Main = ({showIntro}) => {
                 <p>2시간 무료주차, 로비 태블릿 차량번호 입력</p>
               </div>
               <div className='content-directions-box'>
-                {/* <img className="map-icon" src={subway} /> */}
-                <span>지하철</span>
-                <p>[1호선] 수원역 하차 후 택시로 15-20분 이동</p>
-                <p>[수인분당선] 수원시청역 하차 후 택시로 10분 이동</p>
-              </div>
-              <div className='content-directions-box'>
                 {/* <img className="map-icon" src={bus} /> */}
                 <span>버스</span>
+                <p>* 셔틀버스 : 수인분단선 수원시청역 9번출구 앞 <br />
+                  (정시기준 약 20분간격 운행)</p>
                 <p>[수원월드컵경기장, 동성중학교 하차]</p>
                 <p>80,99-2, 720-1, 1007-1, 3007, 3008, 4000, 4500,<br />
                   7000, 7001, 8800</p>
                 <p>[수원월드컵경기장, 아름학교 하차] </p>
                 <p> 13-4</p>
-                <p>* 셔틀버스 : 수인분단선 수원시청역 9번출구 앞 <br />
-                  (정시기준 약 20분간격 운행)</p>
+                
               </div>
+              <div className='content-directions-box'>
+                {/* <img className="map-icon" src={subway} /> */}
+                <span>지하철</span>
+                <p>[1호선] 수원역 하차 후 택시로 15-20분 이동</p>
+                <p>[수인분당선] 수원시청역 하차 후 택시로 10분 이동</p>
+              </div>
+             
             </div>
           </FadeInSection>
         </div>
@@ -335,7 +337,9 @@ export const Main = ({showIntro}) => {
           <img src={sample3} className="footer-image" alt="footer" />
           <h1 className="footer-image-text">글씨 테스트</h1>
         </div>
-
+        <div className="footer-text">
+         <span>Copyright 2025.<strong>FROM yeji</strong>. All rights reserved.</span>
+        </div>
       </div >
       {isModal && <ContactModal setIsModal={setIsModal} />}
       {isCommunicationModal && <CommunicationModal setIsCommunicationModal={setIsCommunicationModal} />}

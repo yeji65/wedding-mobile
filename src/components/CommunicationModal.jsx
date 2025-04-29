@@ -57,10 +57,11 @@ const CommunicationModal = ({ setIsCommunicationModal }) => {
         getTest()
     }, [])
     return (
-        <div className="modal-overlay" onClick={() => setIsCommunicationModal(false)}>
+        <div className="modal-overlay">
             <div className="modal-box" onClick={(e) => e.stopPropagation()}>
                 <div className="modal-header">
                     <h2>참석 의사 전달</h2>
+                    <button className="modal-close" onClick={() => setIsCommunicationModal(false)}>×</button>
                 </div>
                 <table className="modal-table">
                     <tbody>
