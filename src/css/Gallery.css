@@ -89,11 +89,12 @@
   }
   
   .arrow.left {
-    width: 10px;
+    width: 60px;
     left: 10px;
   }
   
   .arrow.right {
+    width: 60px;
     right: 20px;
   }
   

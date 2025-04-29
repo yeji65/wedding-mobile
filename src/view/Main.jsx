@@ -24,7 +24,14 @@ import FadeInSection from '@/components/FadeInSection';
 import GuestBook from '@/components/GuestBook';
 import CommunicationSubModal from '@/components/CommunicationSubModal';
 import PasswordModal from '@/components/PasswordModal';
-
+import sample1 from '@/images/sample1.png';
+import sample2 from '@/images/sample2.jpg';
+import sample3 from '@/images/sample3.png';
+import sample4 from '@/images/sample4.png';
+import sample5 from '@/images/sample5.jpg';
+import sample6 from '@/images/sample6.jpg';
+import sample7 from '@/images/sample7.jpg';
+import sample8 from '@/images/sample8.jpg';
 export const Main = () => {
 
   //데이터
@@ -36,7 +43,7 @@ export const Main = () => {
   //참석여부 모달
   const [isCommunicationModal, setIsCommunicationModal] = useState(false)
 
-  const [isCommunicationSubModal, setIsCommunicationSubModal] = useState(true)
+  const [isCommunicationSubModal, setIsCommunicationSubModal] = useState(false)
 
   //선택한 이미지 
   const [selectedIndex, setSelectedIndex] = useState(null);
@@ -80,7 +87,7 @@ export const Main = () => {
   /**********************  갤러리  ********************/
   /****************************************************/
   const images = [
-    gifImage, profileImg1, gifImage, profileImg1, gifImage, profileImg1, gifImage, profileImg1, gifImage, profileImg1
+    sample2, sample3, sample4, sample5, sample6, sample7, sample8, sample1, sample5, profileImg1
   ];
 
   const prevImage = () => {
@@ -148,15 +155,14 @@ export const Main = () => {
   return (
     <div className="app-container">
       <div className="invitation-container">
-        <p style={{ fontWeight: 100 }}>WEDDING INVITATION</p>
+        <p>WEDDING INVITATION</p>
         <div className="title">
-          <div className="title-name">{user[0]?.name}</div>
-          <div className="title-div">&</div>
-          <div className="title-name">{user[3]?.name}</div>
+          <div className="title-name">26|03|28 </div>
+          <span className="title-sub">SATURDAY</span>
         </div>
-        <img className="main-img" src={gifImage} />
+        <img className="main-img" src={sample2} />
+        <h3>최신랑 & 이신부</h3>
         <p>2026년 3월 28일 (토) 오전 11시</p>
-        <h3>{user[0]?.name + " & " + user[3]?.name}</h3>
         <p>WI컨벤션 W홀</p>
         <FadeInSection>
           <div>
@@ -183,8 +189,8 @@ export const Main = () => {
           </div>
 
           <div style={{ padding: 20 }}>
-            <p style={{ fontWeight: 600 }}>OOO ⦁ OOO의 아들 OO</p>
-            <p style={{ fontWeight: 600 }}>OOO ⦁ OOO의 딸 OO</p>
+            <p style={{ fontWeight: 600 }}>OOO ⦁ OOO의 아들 신랑</p>
+            <p style={{ fontWeight: 600 }}>OOO ⦁ OOO의 딸 신부</p>
           </div>
 
           <button className="btn-outline" onClick={() => setIsModal(isModal => !isModal)}>연락하기</button>
@@ -325,6 +331,11 @@ export const Main = () => {
             />
           </div>
         </FadeInSection>
+        <div className="footer">
+          <img src={sample3} className="footer-image" alt="footer" />
+          <h1 className="footer-image-text">글씨 테스트</h1>
+        </div>
+
       </div >
       {isModal && <ContactModal setIsModal={setIsModal} />}
       {isCommunicationModal && <CommunicationModal setIsCommunicationModal={setIsCommunicationModal} />}
