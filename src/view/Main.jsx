@@ -32,7 +32,10 @@ import sample5 from '@/images/sample5.jpg';
 import sample6 from '@/images/sample6.jpg';
 import sample7 from '@/images/sample7.jpg';
 import sample8 from '@/images/sample8.jpg';
-export const Main = ({showIntro}) => {
+import flower from '@/images/flower.png';
+import heart from '@/images/heart.png';
+
+export const Main = ({ showIntro }) => {
 
   //데이터
   const [user, setUser] = useState([])
@@ -150,23 +153,23 @@ export const Main = ({showIntro}) => {
     } else {
       document.body.style.overflow = 'unset';
     }
-  }, [isCommunicationSubModal, isModal, isCommunicationModal, showPasswordModal.state,showIntro]);
+  }, [isCommunicationSubModal, isModal, isCommunicationModal, showPasswordModal.state, showIntro]);
 
   return (
     <div className="app-container">
       <div className="invitation-container">
-        <p>WEDDING INVITATION</p>
+        <p className='subject'>WEDDING INVITATION</p>
         <div className="title">
-          <div className="title-name">26|03|28 </div>
-          <span className="title-sub">SATURDAY</span>
+          <div className="title-name">26|03|28</div>
+          <span className="title-sub">토요일</span>
         </div>
         <img className="main-img" src={sample2} />
-        <h3>최신랑 & 이신부</h3>
+        <h3>{user[0]?.name + " & " + user[3]?.name}</h3>
         <p>2026년 3월 28일 (토) 오전 11시</p>
         <p>WI컨벤션 W홀</p>
         <FadeInSection>
           <div >
-            <img style={{ width: "25px", padding: "100px 0px 20px" }} src={loveImage} />
+            <img style={{ width: "30px", padding: "80px 0px 0px" }} src={flower} />
             <p>어떤 이유로 만나 나와 사랑을 하고</p>
             <p>어떤 이유로 내게와 함께 있어 준 당신</p>
             <p>부디 행복한 날도 살다 지치는 날도</p>
@@ -175,7 +178,8 @@ export const Main = ({showIntro}) => {
           </div>
         </FadeInSection>
         <FadeInSection>
-          <img className="main-img" src={sample8}  />
+          <img className="main-img" src={sample8} />
+
         </FadeInSection>
         <FadeInSection>
           <div className='content-invite'>
@@ -188,9 +192,9 @@ export const Main = ({showIntro}) => {
             <p>출복해 주시면 감사하겠습니다.</p>
           </div>
 
-          <div style={{ padding: 20 }}>
-            <p style={{ fontWeight: 600 }}>OOO ⦁ OOO의 아들 신랑</p>
-            <p style={{ fontWeight: 600 }}>OOO ⦁ OOO의 딸 신부</p>
+          <div style={{ padding: 20 ,fontWeight: 600}}>
+            <p>{user[1]?.name +" ⦁ " + user[2]?.name +"의 아들 "+ user[0]?.alias  }</p>
+            <p>{user[4]?.name +" ⦁ " + user[5]?.name +"의 딸 " + user[3]?.alias }</p>
           </div>
 
           <button className="btn-outline" onClick={() => setIsModal(isModal => !isModal)}>연락하기</button>
@@ -198,7 +202,7 @@ export const Main = ({showIntro}) => {
         <FadeInSection>
           <div className="profile">
             <img className="profile-img" src={profileImg2} />
-            <img style={{ width: "5%", height: "5%", paddingTop: 60 }} src={loveImage} />
+            <img style={{ width: "5%", height: "5%", paddingTop: 60, color:"#444547" }} src={heart} />
             <img className="profile-img" src={profileImg1} />
           </div>
         </FadeInSection>
@@ -235,6 +239,7 @@ export const Main = ({showIntro}) => {
               031-241-6000
             </p>
             {/* <Map /> */}
+            지도영역
             <div className="map-links">
               <div className="map-item"
                 onClick={() => openMapLink(
@@ -288,7 +293,7 @@ export const Main = ({showIntro}) => {
                   7000, 7001, 8800</p>
                 <p>[수원월드컵경기장, 아름학교 하차] </p>
                 <p> 13-4</p>
-                
+
               </div>
               <div className='content-directions-box'>
                 {/* <img className="map-icon" src={subway} /> */}
@@ -296,7 +301,7 @@ export const Main = ({showIntro}) => {
                 <p>[1호선] 수원역 하차 후 택시로 15-20분 이동</p>
                 <p>[수인분당선] 수원시청역 하차 후 택시로 10분 이동</p>
               </div>
-             
+
             </div>
           </FadeInSection>
         </div>
@@ -338,10 +343,10 @@ export const Main = ({showIntro}) => {
           <h1 className="footer-image-text">글씨 테스트</h1>
         </div>
         <div className="footer-text">
-         <span>Copyright 2025.<strong>FROM yeji</strong>. All rights reserved.</span>
+          <span><strong>FROM yeji</strong>. All rights reserved.</span>
         </div>
       </div >
-      {isModal && <ContactModal setIsModal={setIsModal} />}
+      {isModal && <ContactModal setIsModal={setIsModal} user={user}/>}
       {isCommunicationModal && <CommunicationModal setIsCommunicationModal={setIsCommunicationModal} />}
       {isCommunicationSubModal && <CommunicationSubModal
         setIsCommunicationSubModal={setIsCommunicationSubModal}

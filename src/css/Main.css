@@ -30,6 +30,7 @@ body {
 .app-container p {
     color: #444547;
 }
+
 /* 청첩장 카드 */
 .invitation-container {
     /* background: white; */
@@ -73,6 +74,17 @@ body {
     text-align: center;
 }
 
+.invitation-container .subject {
+    font-family: 'Cafe24Oneprettynight';
+}
+
+@font-face {
+    font-family: 'Cafe24Oneprettynight';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Oneprettynight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .button-group {
     display: flex;
     flex-direction: column;
@@ -102,9 +114,12 @@ body {
 
 .title {
     display: flex;
-    flex-direction: column; /* 세로 정렬 */
-    align-items: center;     /* 가로 중앙 정렬 */
-    text-align: center;      
+    flex-direction: column;
+    /* 세로 정렬 */
+    align-items: center;
+    /* 가로 중앙 정렬 */
+    text-align: center;
+    font-family: 'NanumBarunpen';
 }
 
 .title-name {
@@ -113,9 +128,10 @@ body {
 }
 
 .title-sub {
-    margin-top: 8px; /* 위와 아래 간격 */
+    margin-top: 8px;
+    /* 위와 아래 간격 */
     font-size: 0.9rem;
-  }
+}
 
 .content-invite h3 {
     text-decoration-line: underline;
@@ -151,12 +167,12 @@ body {
 .calendar-wrapper h3 {
     text-decoration-line: underline;
     text-underline-offset: 10px;
-    padding-bottom: 10%;
+    padding-bottom: 7%;
     color: #876262a6;
 }
 
 .calendar-wrapper p {
-    padding-bottom: 10%;
+    padding-bottom: 7%;
     font-weight: 600;
 }
 
@@ -216,13 +232,13 @@ body {
 }
 
 .map-icon {
-    width: 24px;
+    width: 22px;
     height: 24px;
     margin-right: 8px;
 }
 
 .map-label {
-    font-size: 14px;
+    font-size: 12px;
     color: #333;
     font-family: 'Noto Sans KR', sans-serif;
 }
@@ -279,7 +295,7 @@ body {
     z-index: 2;
 }
 
-.footer-text{
+.footer-text {
     font-size: small;
     color: #33333359;
 }
