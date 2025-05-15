@@ -148,12 +148,12 @@ export const Main = ({ showIntro }) => {
 
   //팝업 true일경우 스크롤 금지
   useEffect(() => {
-    if (isCommunicationSubModal || isModal || isCommunicationModal || showPasswordModal.state || showIntro) {
+    if (isCommunicationSubModal || isModal || isCommunicationModal || showPasswordModal.state || showIntro || selectedIndex !== null) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
     }
-  }, [isCommunicationSubModal, isModal, isCommunicationModal, showPasswordModal.state, showIntro]);
+  }, [isCommunicationSubModal, isModal, isCommunicationModal, showPasswordModal.state, showIntro,selectedIndex]);
 
   return (
     <div className="app-container">
