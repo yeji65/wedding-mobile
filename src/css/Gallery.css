@@ -1,118 +1,135 @@
-
 /* 가로 스크롤 감싸기 */
 .scroll-wrapper-horizontal {
-    overflow-x: auto;
-    padding: 20px;
-  }
-  
-  /* 가로로 나열된 세로 column */
-  .horizontal-gallery {
-    display: flex;
-    gap: 16px;
-  }
-  
-  /* 세로 column - 각 column에 이미지 3개씩 */
-  .gallery-column {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    flex: 0 0 auto;
-    width: 100px;
-  }
+  overflow-x: auto;
+  padding: 20px;
+}
 
-  /* 이미지 박스 */
-  .gallery-item {
-    position: relative;
-    aspect-ratio: 1 / 1;
-    overflow: hidden;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
-  
-  .gallery-item:hover {
-    transform: scale(1.03);
-  }
-  
-  .gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  /* 오버레이 */
-  .overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.4);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  
-  .gallery-item:hover .overlay {
-    opacity: 1;
-  }
-  
-  /* 모달 */
-  .modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-  
-  .modal img {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 10px;
-  }
+/* 스크롤바 트랙 */
+.content-gallery ::-webkit-scrollbar {
+  height: 5px;
+  /* 세로는 width, 가로는 height */
+}
 
-  .arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 25px;
-    color: white;
-    background: rgba(0,0,0,0);
-    border: none;
-    cursor: pointer;
-    padding: 8px 16px;
-    z-index: 1001;
-    transition: background 0.2s;
-  }
-  
-  .arrow.left {
-    width: 60px;
-    left: 10px;
-  }
-  
-  .arrow.right {
-    width: 60px;
-    right: 20px;
-  }
-  
+/* 스크롤바 배경 (트랙) */
+.content-gallery ::-webkit-scrollbar-track {
+  /* background: white; */
+  border-radius: 4px;
+}
 
-  .modal img {
-    max-width: 90%;
-    max-height: 90%;
-    border-radius: 10px;
-  }
+/* 스크롤바 핸들 (움직이는 부분) */
+.content-gallery ::-webkit-scrollbar-thumb {
+  background: #876262a6;
+  border-radius: 4px;
+}
 
-  .modal-close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 24px;
-    color: white;
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 1001;
-  }
+/* 가로로 나열된 세로 column */
+.horizontal-gallery {
+  display: flex;
+  gap: 16px;
+}
+
+/* 세로 column - 각 column에 이미지 3개씩 */
+.gallery-column {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 0 0 auto;
+  width: 110px;
+}
+
+/* 이미지 박스 */
+.gallery-item {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.03);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 오버레이 */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .overlay {
+  opacity: 1;
+}
+
+/* 모달 */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 25px;
+  color: white;
+  background: rgba(0, 0, 0, 0);
+  border: none;
+  cursor: pointer;
+  padding: 8px 16px;
+  z-index: 1001;
+  transition: background 0.2s;
+}
+
+.arrow.left {
+  width: 60px;
+  left: 10px;
+}
+
+.arrow.right {
+  width: 60px;
+  right: 20px;
+}
+
+
+.modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}

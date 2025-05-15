@@ -37,7 +37,7 @@ import heart from '@/images/heart.png';
 
 export const Main = ({ showIntro }) => {
 
-  //데이터
+  //데이터 
   const [user, setUser] = useState([])
 
   //연락처 모달
@@ -160,7 +160,7 @@ export const Main = ({ showIntro }) => {
       <div className="invitation-container">
         <p className='subject'>WEDDING INVITATION</p>
         <div className="title">
-          <div className="title-name">26|03|28</div>
+          <div className="title-name">26 | 03 | 28</div>
           <span className="title-sub">토요일</span>
         </div>
         <img className="main-img" src={sample2} />
@@ -192,9 +192,9 @@ export const Main = ({ showIntro }) => {
             <p>출복해 주시면 감사하겠습니다.</p>
           </div>
 
-          <div style={{ padding: 20 ,fontWeight: 600}}>
-            <p>{user[1]?.name +" ⦁ " + user[2]?.name +"의 아들 "+ user[0]?.alias  }</p>
-            <p>{user[4]?.name +" ⦁ " + user[5]?.name +"의 딸 " + user[3]?.alias }</p>
+          <div style={{ padding: 20, fontWeight: 600 }}>
+            <p>{user[1]?.name + " ⦁ " + user[2]?.name + "의 아들 " + user[0]?.alias}</p>
+            <p>{user[4]?.name + " ⦁ " + user[5]?.name + "의 딸 " + user[3]?.alias}</p>
           </div>
 
           <button className="btn-outline" onClick={() => setIsModal(isModal => !isModal)}>연락하기</button>
@@ -202,7 +202,7 @@ export const Main = ({ showIntro }) => {
         <FadeInSection>
           <div className="profile">
             <img className="profile-img" src={profileImg2} />
-            <img style={{ width: "5%", height: "5%", paddingTop: 60, color:"#444547" }} src={heart} />
+            <img style={{ width: "5%", height: "5%", paddingTop: 60, color: "#444547" }} src={heart} />
             <img className="profile-img" src={profileImg1} />
           </div>
         </FadeInSection>
@@ -210,7 +210,7 @@ export const Main = ({ showIntro }) => {
           <div className="calendar-wrapper">
             <h3>일정</h3>
             <p>2026년 3월 28일 (토) 오전 11시 <br />
-              Wi웨딩홀 W홀
+              WI웨딩홀 W홀
             </p>
             <Calendar
               calendarType="gregory"
@@ -301,7 +301,6 @@ export const Main = ({ showIntro }) => {
                 <p>[1호선] 수원역 하차 후 택시로 15-20분 이동</p>
                 <p>[수인분당선] 수원시청역 하차 후 택시로 10분 이동</p>
               </div>
-
             </div>
           </FadeInSection>
         </div>
@@ -346,7 +345,7 @@ export const Main = ({ showIntro }) => {
           <span><strong>FROM yeji</strong>. All rights reserved.</span>
         </div>
       </div >
-      {isModal && <ContactModal setIsModal={setIsModal} user={user}/>}
+      {isModal && <ContactModal setIsModal={setIsModal} user={user} />}
       {isCommunicationModal && <CommunicationModal setIsCommunicationModal={setIsCommunicationModal} />}
       {isCommunicationSubModal && <CommunicationSubModal
         setIsCommunicationSubModal={setIsCommunicationSubModal}
