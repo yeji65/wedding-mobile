@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Main } from './view/Main'
 import WeddingIntro from './view/WeddingIntro ';
-import KakaoShareButton from './components/KakaoShareButton';
 
 function App() {
   const [showIntro, setShowIntro] = useState(true);
@@ -19,7 +18,6 @@ function App() {
     <div>
       {showIntro && <WeddingIntro onFinished={handleIntroFinished} />}
       <Main showIntro={showIntro}/>
-      <KakaoShareButton /> 
     </div>
   )
 }

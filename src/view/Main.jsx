@@ -34,6 +34,7 @@ import sample7 from '@/images/sample7.jpg';
 import sample8 from '@/images/sample8.jpg';
 import flower from '@/images/flower.png';
 import heart from '@/images/heart.png';
+import KakaoShareButton from '@/components/KakaoShareButton';
 
 export const Main = ({ showIntro }) => {
 
@@ -153,7 +154,7 @@ export const Main = ({ showIntro }) => {
     } else {
       document.body.style.overflow = 'unset';
     }
-  }, [isCommunicationSubModal, isModal, isCommunicationModal, showPasswordModal.state, showIntro,selectedIndex]);
+  }, [isCommunicationSubModal, isModal, isCommunicationModal, showPasswordModal.state, showIntro, selectedIndex]);
 
   return (
     <div className="app-container">
@@ -341,7 +342,10 @@ export const Main = ({ showIntro }) => {
           <img src={sample3} className="footer-image" alt="footer" />
           <h1 className="footer-image-text">글씨 테스트</h1>
         </div>
+        <KakaoShareButton />
+
         <div className="footer-text">
+
           <span><strong>FROM yeji</strong>. All rights reserved.</span>
         </div>
       </div >
