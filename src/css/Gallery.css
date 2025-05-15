@@ -1,34 +1,140 @@
-/* 가로 스크롤 감싸기 */
+.gallery-container {
+  max-width: 100%;
+  padding: 40px;
+  font-family: 'Helvetica Neue', sans-serif;
+  text-align: center;
+  /* background: white; */
+  overflow: hidden;
+}
+
+.gallery-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.gallery-subtitle {
+  font-size: 16px;
+  color: #888;
+  margin-bottom: 16px;
+}
+
+.carousel-wrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  touch-action: pan-y;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease;
+  will-change: transform;
+}
+
+.carousel-slide {
+  width: 240px;
+  height: 300px;
+  margin: 0 10px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+  border-radius: 12px;
+  /* 둥근 모서리 */
+  overflow: hidden;
+  /* 이미지가 모서리 넘지 않게 */
+}
+
+.carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  /* border-radius는 안 줘도 됨 */
+}
+
+.carousel-slide.active {
+  transform: scale(1.1);
+  opacity: 1;
+  filter: none;
+  z-index: 2;
+  overflow: hidden;
+  /* 꼭 다시 넣어줘야 확대해도 모서리 유지됨 */
+  border-radius: 12px;
+  /* active 상태에서도 유지 */
+}
+
+.carousel-slide.blurred {
+  transform: scale(0.8);
+  opacity: 0.5;
+  filter: blur(2px);
+}
+
+.dot-indicator {
+  margin-top: 25px;
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 6px;
+  margin: 0 3px;
+  background-color: #87626247;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #444547;
+  width: 18px;
+}
+
+.carousel-wrapper {
+  overflow: visible;
+  /* 흐림 효과 위해 visible로 */
+}
+
+.carousel-track {
+  align-items: center;
+  /* 세로 중앙 정렬 */
+}
+
+
+/* 
+
 .scroll-wrapper-horizontal {
   overflow-x: auto;
   padding: 20px;
 }
 
-/* 스크롤바 트랙 */
 .content-gallery ::-webkit-scrollbar {
   height: 5px;
-  /* 세로는 width, 가로는 height */
 }
 
-/* 스크롤바 배경 (트랙) */
 .content-gallery ::-webkit-scrollbar-track {
-  /* background: white; */
   border-radius: 4px;
 }
 
-/* 스크롤바 핸들 (움직이는 부분) */
 .content-gallery ::-webkit-scrollbar-thumb {
   background: #876262a6;
   border-radius: 4px;
 }
 
-/* 가로로 나열된 세로 column */
 .horizontal-gallery {
   display: flex;
   gap: 16px;
 }
 
-/* 세로 column - 각 column에 이미지 3개씩 */
 .gallery-column {
   display: flex;
   flex-direction: column;
@@ -37,7 +143,6 @@
   width: 110px;
 }
 
-/* 이미지 박스 */
 .gallery-item {
   position: relative;
   aspect-ratio: 1 / 1;
@@ -56,8 +161,6 @@
   height: 100%;
   object-fit: cover;
 }
-
-/* 오버레이 */
 .overlay {
   position: absolute;
   inset: 0;
@@ -74,7 +177,6 @@
   opacity: 1;
 }
 
-/* 모달 */
 .modal {
   position: fixed;
   inset: 0;
@@ -132,4 +234,4 @@
   border: none;
   cursor: pointer;
   z-index: 1001;
-}
+}  */
