@@ -26,38 +26,39 @@ const Gallery = ({ images, setSelectedIndex }) => {
     const offsetX = `calc(50% - ${TOTAL_SLIDE_WIDTH / 2}px - ${currentIndex * TOTAL_SLIDE_WIDTH}px)`;
 
     return (
-        <div className="gallery-container">
-            <div className="carousel-wrapper" {...swipeHandlers}>
-                <div
-                    className="carousel-track"
-                    style={{
-                        transform: `translateX(${offsetX})`,
-                    }}
-                >
-                    {images.map((img, index) => {
-                        const isActive = index === currentIndex;
-                        return (
-                            <div
-                                key={index}
-                                className={`carousel-slide ${isActive ? 'active' : 'blurred'}`}
-                            >
+            <div className="gallery-container">
+                <div className="carousel-wrapper" {...swipeHandlers}>
+                    <div
+                        className="carousel-track"
+                        style={{
+                            transform: `translateX(${offsetX})`,
+                        }}
+                    >
+                        {images.map((img, index) => {
+                            const isActive = index === currentIndex;
+                            return (
+                                <div
+                                    key={index}
+                                    className={`carousel-slide ${isActive ? 'active' : 'blurred'}`}
+                                    onClick={() => setSelectedIndex(index)}
+                                >
                                 <img src={img} alt={img.alt} />
-                            </div>
-                        );
-                    })}
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
+
+                <div className="dot-indicator">
+                    {images.map((_, index) => (
+                        <span
+                            key={index}
+                            className={`dot ${index === currentIndex ? 'active' : ''}`}
+                            onClick={() => setCurrentIndex(index)}
+                        />
+                    ))}
                 </div>
             </div>
-
-            <div className="dot-indicator">
-                {images.map((_, index) => (
-                    <span
-                        key={index}
-                        className={`dot ${index === currentIndex ? 'active' : ''}`}
-                        onClick={() => setCurrentIndex(index)}
-                    />
-                ))}
-            </div>
-        </div>
 
     )
 }

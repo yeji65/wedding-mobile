@@ -175,7 +175,7 @@
 
 .gallery-item:hover .overlay {
   opacity: 1;
-}
+} */
 
 .modal {
   position: fixed;
@@ -234,4 +234,4 @@
   border: none;
   cursor: pointer;
   z-index: 1001;
-}  */
+}  
