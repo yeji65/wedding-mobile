@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import kakao from '@/images/kakao.png';
 
 const KakaoShareButton = () => {
   useEffect(() => {
@@ -20,9 +21,12 @@ const KakaoShareButton = () => {
   };
 
   return (
-    <button onClick={shareToKakao} id="kakao-link-btn">
-      카카오톡으로 공유
-    </button>
+    <div className='kakao-box'>
+      <img className="map-icon" src={kakao} />
+      <button onClick={shareToKakao} className="kakao-link-btn">
+        카카오톡으로 초대장 보내기
+      </button>
+    </div>
   );
 };
 
