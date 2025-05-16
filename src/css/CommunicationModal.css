@@ -1,152 +1,166 @@
 .modal-overlay {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-box {
+  width: 80%;
+  max-width: 350px;
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h2 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modal-content label {
+  font-size: 0.9rem;
+  margin-top: 15px;
+  display: block;
+  font-weight: 500;
+}
+
+.modal-content input {
+  width: 80%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 0.95rem;
+}
+
+.toggle-button {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.toggle-button button {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background: #f4f4f4;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  color: #444547;
+}
+
+.toggle-button button.active {
+  background: #ecb6b6;
+  color: white;
+  border-color: #ecb6b6;
+}
+
+.submit-button {
+  width: 100%;
+  margin-top: 25px;
+  background: #ecb6b6;
+  color: white;
+  font-size: 1rem;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background: #8762625c;
+}
+
+.modal-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
   
-  .modal-box {
-    width: 80%;
-    max-width: 350px;
-    background: white;
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  }
-  
-  .modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .modal-header h2 {
-    font-size: 1.2rem;
-    margin: 0;
-  }
-  
-  .modal-close {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-  }
-  
-  .modal-content label {
-    font-size: 0.9rem;
-    margin-top: 15px;
-    display: block;
-    font-weight: 500;
-  }
-  
-  .modal-content input {
-    width: 80%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    font-size: 0.95rem;
-  }
-  
-  .toggle-button {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
-  }
-  
-  .toggle-button button {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ccc;
-    background: #f4f4f4;
-    border-radius: 10px;
-    font-size: 0.95rem;
-    cursor: pointer;
-    color: #444547;
-  }
-  
-  .toggle-button button.active {
-    background: #ecb6b6;
-    color: white;
-    border-color: #ecb6b6;
-  }
-  
-  .submit-button {
-    width: 100%;
-    margin-top: 25px;
-    background: #ecb6b6;
-    color: white;
-    font-size: 1rem;
-    padding: 12px;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-  }
-  
-  .submit-button:hover {
-    background: #ecb6b6;
-  }
-  .modal-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-  }
-  
-  .modal-table th {
-    text-align: left;
-    padding: 12px 10px;
-    width: 30%;
-    font-weight: 500;
-    font-size: 0.95rem;
-    vertical-align: middle;
-    color: #444;
-  }
-  
-  .modal-table td {
-    padding: 8px 5px;
-  }
-  
-  .modal-table input {
-    width: 90%;
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    font-size: 0.85rem;
-  }
-  
-  .toggle-button {
-    display: flex;
-    gap: 8px;
-  }
-  
-  .toggle-button button {
-    flex: 1;
-    padding: 8px;
-    background: #f4f4f4;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    font-size: 0.9rem;
-    cursor: pointer;
-  }
-  
-  .toggle-button button.active {
-    background: #ecb6b6;
-    color: white;
-    border-color: #ecb6b6;
-  }
-  
-  .submit-button {
-    width: 100%;
-    margin-top: 20px;
-    background: #ecb6b6;
-    color: white;
-    font-size: 1rem;
-    padding: 12px;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-  }
+}
+
+.modal-table th {
+  text-align: left;
+  padding: 12px 10px;
+  width: 30%;
+  font-weight: 500;
+  font-size: 0.95rem;
+  vertical-align: middle;
+  color: #444;
+}
+
+.modal-table td {
+  padding: 8px 5px;
+
+}
+
+.modal-table input {
+  width: 90%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 0.85rem;
+  font-family: 'GowunDodum-Regular';
+
+
+}
+
+.toggle-button {
+  display: flex;
+  gap: 8px;
+}
+
+.toggle-button button {
+  flex: 1;
+  padding: 8px;
+  background: #f4f4f400;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-family: 'GowunDodum-Regular';
+
+}
+
+.toggle-button button.active {
+  background: #87626230;
+  color: #4e4e4e;
+  border-color: #87626230;
+  font-weight: bold;
+}
+
+.submit-button {
+  width: 100%;
+  margin-top: 20px;
+  background: #87626230;
+  color: #4e4e4e;
+  font-size: 1rem;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: 'GowunDodum-Regular';
+  font-weight: bold;
+
+}

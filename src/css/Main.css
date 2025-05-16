@@ -309,8 +309,17 @@ body {
     font-family: 'GowunDodum-Regular';
 }
 
-.kakao-box{
+.kakao-box {
     display: flex;
     justify-content: center;
-    padding: 12px 0px 12px ;
+    padding: 12px 0;
+}
+
+.map-icon {
+    margin: 0;
+    padding: 0;
+    display: block;
+    width: 20px;
+    /* 크기도 명시해 주세요 */
+    height: 20px;
 }
