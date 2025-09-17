@@ -172,9 +172,17 @@ export const Main = ({ showIntro }) => {
     // 마커 위치
     const markerPosition = new window.kakao.maps.LatLng(37.2864882, 127.035865);
 
+
+    const imageSrc = "https://map.pstatic.net/resource/api/v2/image/maps/selected-marker/229169@2x.png?version=18&mapping=marker-155";
+    const imageSize = new window.kakao.maps.Size(45, 55); // 이미지 크기
+    const imageOption = { offset: new window.kakao.maps.Point(22, 55) }; // 기준점
+
+    const markerImage = new window.kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
+
     // 마커 생성
     const marker = new window.kakao.maps.Marker({
       position: markerPosition,
+      image: markerImage,
     });
 
     // 마커 지도에 표시
