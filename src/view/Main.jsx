@@ -156,6 +156,32 @@ export const Main = ({ showIntro }) => {
     }
   }, [isCommunicationSubModal, isModal, isCommunicationModal, showPasswordModal.state, showIntro, selectedIndex]);
 
+  const mapRef = useRef(null);
+
+  useEffect(() => {
+    if (!window.kakao) return;
+
+ window.kakao.maps.load(() => {
+    const container = mapRef.current;
+    const options = {
+      center: new window.kakao.maps.LatLng(37.2864882, 127.035815), // 지도 중심좌표
+      level: 3,
+    };
+    const map = new window.kakao.maps.Map(container, options);
+
+    // 마커 위치
+    const markerPosition = new window.kakao.maps.LatLng(37.2864882, 127.035865);
+
+    // 마커 생성
+    const marker = new window.kakao.maps.Marker({
+      position: markerPosition,
+    });
+
+    // 마커 지도에 표시
+    marker.setMap(map);
+  });
+  }, []);
+
   return (
     <div className="app-container">
       <div className="invitation-container">
@@ -240,7 +266,9 @@ export const Main = ({ showIntro }) => {
               031-241-6000
             </p>
             {/* <Map /> */}
-            지도영역
+
+            <div ref={mapRef} style={{ width: '99%', height: '300px' }}></div>
+     
             <div className="map-links">
               <div className="map-item"
                 onClick={() => openMapLink(
