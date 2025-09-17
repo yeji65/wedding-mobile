@@ -22,6 +22,9 @@ const KakaoShareButton = () => {
       alert('Kakao SDK가 아직 로드되지 않았습니다.');
       return;
     }
+      Kakao.Link.sendCustom({
+      templateId: 120646, // 실제 카카오톡 템플릿 ID 입력
+  });
 
   }
   return (
