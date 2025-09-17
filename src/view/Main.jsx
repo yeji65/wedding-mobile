@@ -34,6 +34,8 @@ import sample7 from '@/images/sample7.jpg';
 import sample8 from '@/images/sample8.jpg';
 import flower from '@/images/flower.png';
 import heart from '@/images/heart.png';
+import lock from '@/images/lock.png';
+import unlock from '@/images/unlock.png';
 import KakaoShareButton from '@/components/KakaoShareButton';
 
 export const Main = ({ showIntro }) => {
@@ -56,6 +58,9 @@ export const Main = ({ showIntro }) => {
   const [showPasswordModal, setShowPasswordModal] = useState({ mode: "", state: false });
   const [mode, setMode] = useState('R')
   const [selectedData, setSelectedData] = useState({})
+
+  //지도 자물쇠
+  const [islock, setIsLock] = useState(false);
 
   /**********************  캘린더  ********************/
   /****************************************************/
@@ -157,6 +162,7 @@ export const Main = ({ showIntro }) => {
   }, [isCommunicationSubModal, isModal, isCommunicationModal, showPasswordModal.state, showIntro, selectedIndex]);
 
   const mapRef = useRef(null);
+  const mapInstance = useRef(null);
 
   useEffect(() => {
     if (!window.kakao) return;
@@ -166,8 +172,11 @@ export const Main = ({ showIntro }) => {
     const options = {
       center: new window.kakao.maps.LatLng(37.2864882, 127.035815), // 지도 중심좌표
       level: 3,
+      draggable: islock,    // 지도 드래그 금지
+      scrollwheel: islock,
     };
     const map = new window.kakao.maps.Map(container, options);
+    mapInstance.current = map;
 
     // 마커 위치
     const markerPosition = new window.kakao.maps.LatLng(37.2864882, 127.035865);
@@ -189,6 +198,22 @@ export const Main = ({ showIntro }) => {
     marker.setMap(map);
   });
   }, []);
+
+    const toggleLock = () => {
+    if (!mapInstance.current) return;
+    mapInstance.current.setDraggable(!islock);    // 현재 잠금이면 드래그 허용
+    mapInstance.current.setZoomable(!islock);     // 현재 잠금이면 줌 허용
+    setIsLock(islock => !islock);
+    setShowOverlay(false);
+  };
+
+  const [showOverlay, setShowOverlay] = useState(false);
+
+  const handleMapTouch = () => {
+  if (!islock) {
+    setShowOverlay(true); // 
+  }
+};
 
   return (
     <div className="app-container">
@@ -274,9 +299,67 @@ export const Main = ({ showIntro }) => {
               031-241-6000
             </p>
             {/* <Map /> */}
-
-            <div ref={mapRef} style={{ width: '99%', height: '300px' }}></div>
      
+        <div style={{ position: 'relative', width: '100%', height: '500px' }}>
+        <div 
+          ref={mapRef} 
+          style={{ width: '100%', height: '100%' }}
+          onMouseDown={handleMapTouch}     // PC
+          onTouchStart={handleMapTouch} 
+        >
+        </div>
+
+        {/* 지도 잠금/해제 버튼 */}
+          <div
+            onClick={toggleLock}
+            className='map-lock'
+            style={{
+              position: 'absolute',
+              top: 10,
+              right: 10,
+              width: 40,
+              height: 40,
+              backgroundColor: '#fff',
+              border: '1px solid #ccc',
+              borderRadius: 6,
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              cursor: 'pointer',
+              zIndex: 10,
+              boxShadow: '0 2px 4px rgba(0,0,0,0.2)',
+            }}
+          >
+          {/* 자물쇠 이미지 */}
+            <img
+              src={islock ? unlock : lock}
+              alt="lock"
+              style={{ width: 20, height: 20 }}
+            />
+          </div>
+
+           {!islock && showOverlay && (
+            <div
+              style={{
+                position: 'absolute',
+                bottom: 0,
+                width: '100%',
+                height: '80px',
+                backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                zIndex: 15,
+                fontSize: '14px',
+                color: '#333',
+              }}
+            >
+            <img src={lock} alt="lock" style={{ width: 16, height: 16, marginRight: 6 }} />
+            지도를 움직이려면 위 자물쇠 버튼을 눌러주세요.
+            </div>
+          )}
+          </div>
+
             <div className="map-links">
               <div className="map-item"
                 onClick={() => openMapLink(
