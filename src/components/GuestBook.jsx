@@ -120,7 +120,7 @@ const GuestBook = ({ setSelectedData, selectedData, mode, setMode, setShowPasswo
     return (
         <div className="container">
             {mode == 'R' && <button className="write-btn" onClick={() => { setMode('W') }}>글쓰기</button>}
-            <div className="board">
+            <div className="board" style={mode == 'R' ? {overflowY: 'scroll'} : null }>
                 {mode == 'R' ? (
                     boardData
                         .sort((a, b) => b.date - a.date)
@@ -205,7 +205,7 @@ const GuestBook = ({ setSelectedData, selectedData, mode, setMode, setShowPasswo
                                 className="multi-underline-textarea"
                                 defaultValue={''}
                                 onChange={(e) => setEditText({ ...editText, content: e.target.value })}
-                                rows={3}
+                                rows={4}
                             />
                         </div>
 

@@ -2,6 +2,7 @@
   margin: 40px auto;
   /* padding: 16px; */
   border-radius: 12px;
+  height: 300px;
 }
 
 .write-btn {
@@ -19,8 +20,8 @@
 
 .board {
   /* width: 80%; */
-  height: 250px;
-  overflow-y: scroll;
+  height: 300px;
+  /* overflow-y: scroll; */
   padding-left: 10%;
 }
 
@@ -81,8 +82,8 @@
 
 /* 수정 폼 */
 .form-box {
-  width: 87%;
-  height: 87%;
+  width: 80%;
+  height: 89%;
   overflow: hidden;
   background-color: #fefefe;
   padding: 16px;
@@ -98,11 +99,12 @@
 .input-row {
   display: flex;
   align-items: flex-start;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
+  width : 250px
 }
 
 .input-row label {
-  width: 15%;
+  width: 26px;
   font-weight: bold;
   font-size: 14px;
   margin-top: 6px;
@@ -116,6 +118,8 @@
   font-size: 14px;
   background: transparent;
   outline: none;
+  margin-left : 10px;
+  font-family: 'GowunDodum-Regular';
 }
 
 /* 여러 줄 밑줄 textarea */
@@ -127,20 +131,22 @@
   resize: none;
   outline: none;
   line-height: 28px;
-  height: 84px;
+  height: 115px;
   background-image: linear-gradient(to bottom, 
   transparent 23px,
   #aaa 25px,
   transparent 1px);
-  background-size: 100% 28px;
+  background-size: 100% 29px;
   background-repeat: repeat-y;
+  margin-left : 10px;
+  font-family: 'GowunDodum-Regular';
 }
 
 
 .button-row {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 20px;
 
 }
 

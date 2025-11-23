@@ -32,6 +32,9 @@ import sample5 from '@/images/sample5.jpg';
 import sample6 from '@/images/sample6.jpg';
 import sample7 from '@/images/sample7.jpg';
 import sample8 from '@/images/sample8.jpg';
+import main from '@/images/main.jpg';
+import mainSpt from '@/images/mainSpt.jpg';
+import footer from '@/images/footer.jpg';
 import flower from '@/images/flower.png';
 import heart from '@/images/heart.png';
 import lock from '@/images/lock.png';
@@ -223,7 +226,7 @@ export const Main = ({ showIntro }) => {
           <div className="title-name">26 | 03 | 28</div>
           <span className="title-sub">토요일</span>
         </div>
-        <img className="main-img" src={sample2} />
+        <img className="main-img" src={main} />
         <h3>{user[0]?.name + " & " + user[3]?.name}</h3>
         <p>2026년 3월 28일 (토) 오전 11시</p>
         <p>WI컨벤션 W홀</p>
@@ -238,7 +241,7 @@ export const Main = ({ showIntro }) => {
           </div>
         </FadeInSection>
         <FadeInSection>
-          <img className="main-img" src={sample8} />
+          <img className="main-img" src={mainSpt} />
 
         </FadeInSection>
         <FadeInSection>
@@ -300,7 +303,7 @@ export const Main = ({ showIntro }) => {
             </p>
             {/* <Map /> */}
      
-        <div style={{ position: 'relative', width: '100%', height: '500px' }}>
+        <div style={{ position: 'relative', width: '100%', height: '280px', }}>
         <div 
           ref={mapRef} 
           style={{ width: '100%', height: '100%' }}
@@ -458,7 +461,7 @@ export const Main = ({ showIntro }) => {
           </div>
         </FadeInSection>
         <div className="footer">
-          <img src={sample3} className="footer-image" alt="footer" />
+          <img src={footer} className="footer-image" alt="footer" />
           <h1 className="footer-image-text">글씨 테스트</h1>
         </div>
         <KakaoShareButton />
