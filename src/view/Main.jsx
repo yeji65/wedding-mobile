@@ -427,7 +427,7 @@ export const Main = ({ showIntro }) => {
             </div>
           </FadeInSection>
         </div>
-        <FadeInSection>
+        {/* <FadeInSection>
           <div className='content-Communication' >
             <h3>참석 의사 전달</h3>
             <p>축하의 마음으로 참석해주시는 <br />
@@ -435,7 +435,7 @@ export const Main = ({ showIntro }) => {
               참석 의사를 전달 부탁드립니다.</p>
             <button className="btn-outline" onClick={() => setIsCommunicationModal(isCommunicationModal => !isCommunicationModal)}>참석 의사 전달하기</button>
           </div>
-        </FadeInSection>
+        </FadeInSection> */}
         <FadeInSection>
           <div className="content-account">
             <h3>마음 전하실 곳</h3>

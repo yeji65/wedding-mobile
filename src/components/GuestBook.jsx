@@ -145,6 +145,7 @@ const GuestBook = ({ setSelectedData, selectedData, mode, setMode, setShowPasswo
                             <input
                                 maxLength={10}
                                 type="text"
+                                style={{ fontSize: '16px' }}
                                 className="underline-input"
                                 defaultValue={selectedData.name !== '' ? selectedData.name : ''}
                                 onChange={(e) => setSelectedData({ ...selectedData, name: e.target.value })}
@@ -154,6 +155,7 @@ const GuestBook = ({ setSelectedData, selectedData, mode, setMode, setShowPasswo
                             <label>비번</label>
                             <input
                                 type="text"
+                                style={{ fontSize: '16px' }}
                                 className="underline-input"
                                 defaultValue={selectedData.password !== '' ? selectedData.password : ''}
                                 onChange={(e) => setSelectedData({ ...selectedData, password: e.target.value })}
@@ -165,6 +167,7 @@ const GuestBook = ({ setSelectedData, selectedData, mode, setMode, setShowPasswo
                             <label>내용</label>
                             <textarea
                                 className="multi-underline-textarea"
+                                style={{ fontSize: '16px' }}
                                 defaultValue={selectedData.content !== '' ? selectedData.content : ''}
                                 onChange={(e) => setSelectedData({ ...selectedData, content: e.target.value })}
                                 rows={3}

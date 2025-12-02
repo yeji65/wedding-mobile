@@ -7,7 +7,7 @@
 
 .write-btn {
   font-family: 'GowunDodum-Regular';
-  width: 80%;
+  width: 81%;
   padding: 10px;
   margin-bottom: 16px;
   font-size: 16px;
@@ -100,7 +100,7 @@
   display: flex;
   align-items: flex-start;
   margin-bottom: 12px;
-  width : 250px
+  width: 100%;
 }
 
 .input-row label {
