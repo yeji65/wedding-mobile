@@ -1,8 +1,8 @@
 .scroll-wrapper-horizontal {
-  overflow-x: auto;   /* 가로 스크롤 허용 */
-  overflow-y: hidden; /* 세로 스크롤 차단 */
-  padding: 20px;
-  touch-action: pan-x; /* 터치 시 좌우 스와이프만 */
+  overflow-x: auto;
+  overflow-y: hidden;      /* 세로 스크롤 막기 */
+  touch-action: pan-x;     /* 좌우 터치 스와이프만 허용 */
+  -webkit-overflow-scrolling: touch; /* iOS 부드러운 스크롤 */
 }
 /* 스크롤바 트랙 */
 .content-gallery ::-webkit-scrollbar {
