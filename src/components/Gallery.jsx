@@ -10,7 +10,7 @@ const Gallery = ({ images, setSelectedIndex }) => {
     }
 
     return (
-        <div className="scroll-wrapper-horizontal" onTouchMove={(e) => e.stopPropagation()}>
+        <div className="scroll-wrapper-horizontal" onTouchStart={(e) => e.stopPropagation()} onTouchMove={(e) => e.preventDefault()}>
             <div className="horizontal-gallery">
                 {columns.map((group, colIdx) => (
                     <div className="gallery-column" key={colIdx}>
