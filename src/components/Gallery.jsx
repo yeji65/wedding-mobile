@@ -10,21 +10,29 @@ const Gallery = ({ images, setSelectedIndex }) => {
     columns.push(images.slice(i, i + 3));
   }
 
-  useEffect(() => {
-    const wrapper = wrapperRef.current;
+useEffect(() => {
+  const wrapper = wrapperRef.current;
 
-    const handleTouchMove = (e) => {
-      e.stopPropagation();
-       e.preventDefault(); 
-    };
+  const handleTouchMove = (e) => {
+    const touch = e.touches[0];
+    const deltaX = touch.clientX - (window.lastTouchX || touch.clientX);
+    const deltaY = touch.clientY - (window.lastTouchY || touch.clientY);
 
-    // passive: false로 설정해야 preventDefault가 동작
-    wrapper.addEventListener('touchmove', handleTouchMove, { passive: false });
+    // 좌우 스크롤이면 세로 스크롤 막기
+    if (Math.abs(deltaX) > Math.abs(deltaY)) {
+      e.preventDefault();
+    }
 
-    return () => {
-      wrapper.removeEventListener('touchmove', handleTouchMove);
-    };
-  }, []);
+    window.lastTouchX = touch.clientX;
+    window.lastTouchY = touch.clientY;
+  };
+
+  wrapper.addEventListener('touchmove', handleTouchMove, { passive: false });
+
+  return () => {
+    wrapper.removeEventListener('touchmove', handleTouchMove);
+  };
+}, []);
 
   return (
     <div className="scroll-wrapper-horizontal" ref={wrapperRef}>
