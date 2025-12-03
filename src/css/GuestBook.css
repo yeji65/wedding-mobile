@@ -154,12 +154,11 @@
 .button-row button {
   background-color: #f3efef;
   border: none;
-  border-radius: 6px;
-  width: 35%;
+  border-radius: 8px;
+  width: 38%;
   color: #444547;
   font-family: 'GowunDodum-Regular';
-  height: 30px;
-  padding-top: 5px;
+  height: 35px;
 }
 
 

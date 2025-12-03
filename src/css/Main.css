@@ -239,6 +239,9 @@ body {
 
 .map-label {
   font-weight: 500;
+  color: black !important;
+  -webkit-text-fill-color: black !important;
+  text-decoration: none !important;
 }
 
 /* 화면 좁아지면 버튼 최소폭 유지 */
