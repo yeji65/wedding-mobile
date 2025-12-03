@@ -9,31 +9,7 @@ const Gallery = ({ images, setSelectedIndex }) => {
   for (let i = 0; i < images.length; i += 3) {
     columns.push(images.slice(i, i + 3));
   }
-
-useEffect(() => {
-  const wrapper = wrapperRef.current;
-
-  const handleTouchMove = (e) => {
-    const touch = e.touches[0];
-    const deltaX = touch.clientX - (window.lastTouchX || touch.clientX);
-    const deltaY = touch.clientY - (window.lastTouchY || touch.clientY);
-
-    // 좌우 스크롤이면 세로 스크롤 막기
-    if (Math.abs(deltaX) > Math.abs(deltaY)) {
-      e.preventDefault();
-    }
-
-    window.lastTouchX = touch.clientX;
-    window.lastTouchY = touch.clientY;
-  };
-
-  wrapper.addEventListener('touchmove', handleTouchMove, { passive: false });
-
-  return () => {
-    wrapper.removeEventListener('touchmove', handleTouchMove);
-  };
-}, []);
-
+  
   return (
     <div className="scroll-wrapper-horizontal" ref={wrapperRef}>
       <div className="horizontal-gallery">

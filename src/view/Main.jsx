@@ -146,12 +146,30 @@ export const Main = ({ showIntro }) => {
 
   //팝업 true일경우 스크롤 금지
   useEffect(() => {
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  
+  const preventScroll = (e) => {
+    e.preventDefault();
+  };
+
+  if (isMobile) {
     if (isCommunicationSubModal || isModal || isCommunicationModal || showPasswordModal.state || showIntro || selectedIndex !== null) {
       document.body.style.overflow = 'hidden';
+      // 모바일 터치 스크롤 완전 방지
+      document.body.addEventListener('touchmove', preventScroll, { passive: false });
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
+      document.body.removeEventListener('touchmove', preventScroll);
     }
-  }, [isCommunicationSubModal, isModal, isCommunicationModal, showPasswordModal.state, showIntro, selectedIndex]);
+  }
+
+  // cleanup
+  return () => {
+    document.body.removeEventListener('touchmove', preventScroll);
+  };
+}, [isCommunicationSubModal, isModal, isCommunicationModal, showPasswordModal.state, showIntro, selectedIndex]);
+
+
 
   const mapRef = useRef(null);
   const mapInstance = useRef(null);
