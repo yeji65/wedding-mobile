@@ -10,7 +10,7 @@ const AccordionSection = ({ title, list }) => {
       if (contentRef.current) {
         setHeight(contentRef.current.scrollHeight);
       }
-    }, []);
+    }, [list]);
   
     const handleCopy = (text) => {
       navigator.clipboard.writeText(text);

@@ -243,10 +243,11 @@ export const Main = ({ showIntro }) => {
             <p>부부로서 저희의 새로운 시작을 </p>
             <p>함께 해주세요</p>
           </div>
-
-          <div style={{ padding: 20, fontWeight: 600 }}>
-            <p>{user[1]?.name + " ⦁ " + user[2]?.name + "의 아들 " + user[0]?.alias}</p>
-            <p>{user[4]?.name + " ⦁ " + user[5]?.name + "의 딸 " + user[3]?.alias}</p>
+        </FadeInSection>
+        <FadeInSection>
+          <div style={{ paddingTop: 50,paddingBottom:20, fontWeight: 600 }}>
+            <p>{user[1]?.name + " ⦁ " + user[2]?.name + " 의 장남 " + user[0]?.name}</p>
+            <p>{user[4]?.name + " ⦁ " + user[5]?.name + " 의 차녀 " + user[3]?.name}</p>
           </div>
 
           <button className="btn-outline" onClick={() => setIsModal(isModal => !isModal)}>연락하기</button>
@@ -351,7 +352,8 @@ export const Main = ({ showIntro }) => {
             </div>
           )}
           </div>
-
+          </FadeInSection>
+          <FadeInSection>
           <div className="map-links">
             <button
               className="map-item"
@@ -392,10 +394,10 @@ export const Main = ({ showIntro }) => {
               <span className="map-label">티맵</span>
             </button>
           </div>
-
           </FadeInSection>
-          <FadeInSection>
+          
             <div className='content-directions-text'>
+               <FadeInSection>
               <div className='content-directions-box'>
                 {/* <img className="map-icon" src={car} /> */}
                 <span>WI컨벤션</span>
@@ -403,6 +405,8 @@ export const Main = ({ showIntro }) => {
                 <p>* 수원월드컵경기장 P7주차장 입력</p>
                 <p>* P6주차장은 혼주전용 주차장입니다.</p>
               </div>
+              </FadeInSection>
+              <FadeInSection>
               <div className='content-directions-box'>
                 {/* <img className="map-icon" src={parking} /> */}
                 <span> 주차</span>
@@ -410,6 +414,8 @@ export const Main = ({ showIntro }) => {
                 <p>* P6주차장은 혼주전용 주차장입니다.</p>
                 <p>2시간 무료주차, 로비 태블릿 차량번호 입력</p>
               </div>
+              </FadeInSection>
+              <FadeInSection>
               <div className='content-directions-box'>
                 {/* <img className="map-icon" src={bus} /> */}
                 <span>버스</span>
@@ -420,16 +426,17 @@ export const Main = ({ showIntro }) => {
                   7000, 7001, 8800</p>
                 <p>[수원월드컵경기장, 아름학교 하차] </p>
                 <p> 13-4</p>
-
               </div>
+               </FadeInSection>
+              <FadeInSection>
               <div className='content-directions-box'>
                 {/* <img className="map-icon" src={subway} /> */}
                 <span>지하철</span>
                 <p>[1호선] 수원역 하차 후 택시로 15-20분 이동</p>
                 <p>[수인분당선] 수원시청역 하차 후 택시로 10분 이동</p>
               </div>
+            </FadeInSection>
             </div>
-          </FadeInSection>
         </div>
         {/* <FadeInSection>
           <div className='content-Communication' >
