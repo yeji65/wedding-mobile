@@ -511,7 +511,7 @@ export const Main = ({ showIntro }) => {
             <button className="arrow left" onClick={(e) => { e.stopPropagation(); prevImage()}} disabled={selectedIndex == 0 ? true : false}>{'<'}</button>
             <img src={images[selectedIndex]} onClick={(e) => e.stopPropagation()} alt="확대 이미지" />
             <button className="arrow right" onClick={(e) => { e.stopPropagation(); nextImage()}} disabled={selectedIndex == images.length - 1 ? true : false}>{'>'}</button>
-            <button className="modal-close" onClick={() => {setSelectedIndex(null); e.stopPropagation();}}>✕</button>
+            <button className="modal-close" onClick={(e) => {setSelectedIndex(null); e.stopPropagation();}}>✕</button>
           </div>
         )
       }

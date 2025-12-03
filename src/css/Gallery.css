@@ -1,9 +1,9 @@
-/* 가로 스크롤 감싸기 */
 .scroll-wrapper-horizontal {
-  overflow-x: auto;
+  overflow-x: auto;   /* 가로 스크롤 허용 */
+  overflow-y: hidden; /* 세로 스크롤 차단 */
   padding: 20px;
+  touch-action: pan-x; /* 터치 시 좌우 스와이프만 */
 }
-
 /* 스크롤바 트랙 */
 .content-gallery ::-webkit-scrollbar {
   height: 5px;
