@@ -145,13 +145,25 @@ export const Main = ({ showIntro }) => {
   }, [])
 
   //팝업 true일경우 스크롤 금지
-  useEffect(() => {
-    if (isCommunicationSubModal || isModal || isCommunicationModal || showPasswordModal.state || showIntro || selectedIndex !== null) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-  }, [isCommunicationSubModal, isModal, isCommunicationModal, showPasswordModal.state, showIntro, selectedIndex]);
+useEffect(() => {
+  const isAnyModalOpen = selectedIndex !== null || isModal || isCommunicationModal || isCommunicationSubModal || showPasswordModal.state;
+
+  if (isAnyModalOpen) {
+    const scrollY = window.scrollY;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+  } else {
+    const scrollY = -parseInt(document.body.style.top || '0', 10);
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    window.scrollTo(0, scrollY);
+  }
+}, [selectedIndex, isModal, isCommunicationModal, isCommunicationSubModal, showPasswordModal.state]);
+
 
   const mapRef = useRef(null);
   const mapInstance = useRef(null);
