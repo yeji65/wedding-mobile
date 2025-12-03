@@ -491,11 +491,27 @@ export const Main = ({ showIntro }) => {
 
       {
         selectedIndex !== null && (
-          <div className="modal" >
-            <button className="arrow left" onClick={prevImage} disabled={selectedIndex == 0 ? true : false}>{'<'}</button>
+              <div className="modal"
+                  onClick={() => setSelectedIndex(null)} 
+                  onTouchStart={(e) => {window.touchStartX = e.touches[0].clientX;}}
+                  onTouchEnd={(e) => {
+                                        const endX = e.changedTouches[0].clientX;
+                                        const diff = endX - window.touchStartX;
+
+                                        // 50px 이상 스와이프일 때만 동작
+                                        if (Math.abs(diff) > 50) {
+                                          if (diff > 0 && selectedIndex > 0) {
+                                            prevImage(); // 오른쪽 → 이전 이미지
+                                          } else if (diff < 0 && selectedIndex < images.length - 1) {
+                                            nextImage(); // 왼쪽 → 다음 이미지
+                                          }
+                                        }
+                                      }}
+                                    >
+            <button className="arrow left" onClick={(e) => { e.stopPropagation(); prevImage()}} disabled={selectedIndex == 0 ? true : false}>{'<'}</button>
             <img src={images[selectedIndex]} onClick={(e) => e.stopPropagation()} alt="확대 이미지" />
-            <button className="arrow right" onClick={nextImage} disabled={selectedIndex == images.length - 1 ? true : false}>{'>'}</button>
-            <button className="modal-close" onClick={() => setSelectedIndex(null)}>✕</button>
+            <button className="arrow right" onClick={(e) => { e.stopPropagation(); nextImage()}} disabled={selectedIndex == images.length - 1 ? true : false}>{'>'}</button>
+            <button className="modal-close" onClick={() => {setSelectedIndex(null); e.stopPropagation();}}>✕</button>
           </div>
         )
       }

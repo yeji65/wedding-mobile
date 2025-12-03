@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import '@/css/AccountAccordion.css'
 
 const AccordionSection = ({ title, list }) => {
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(false);
     const contentRef = useRef(null);
     const [height, setHeight] = useState(0);
   
