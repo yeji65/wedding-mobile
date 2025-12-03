@@ -15,6 +15,7 @@ const Gallery = ({ images, setSelectedIndex }) => {
 
     const handleTouchMove = (e) => {
       e.stopPropagation();
+       e.preventDefault(); 
     };
 
     // passive: false로 설정해야 preventDefault가 동작

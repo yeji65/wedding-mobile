@@ -494,6 +494,7 @@ export const Main = ({ showIntro }) => {
               <div className="modal"
                   onClick={() => setSelectedIndex(null)} 
                   onTouchStart={(e) => {window.touchStartX = e.touches[0].clientX;}}
+                  onTouchMove={(e) => { e.preventDefault(); }}
                   onTouchEnd={(e) => {
                                         const endX = e.changedTouches[0].clientX;
                                         const diff = endX - window.touchStartX;
