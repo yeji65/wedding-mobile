@@ -16,7 +16,7 @@ const AccordionSection = ({ title, list }) => {
       navigator.clipboard.writeText(text);
       alert('계좌번호가 복사되었습니다.');
     };
-  
+
     return (
       <div className="accordion-box">
         <button className="accordion-header" onClick={() => setOpen(!open)}>
@@ -30,15 +30,14 @@ const AccordionSection = ({ title, list }) => {
           }}
         >
           <div className="accordion-inner" ref={contentRef}>
-            {list.map((acc, i) => (
+            {list?.map((acc, i) => (
               <div className="account-row" key={i}>
-                <div className="account-info">
-                  {acc.bank} | {acc.number}
-                  <br />
-                  {acc.name}
-                </div>
-                <button className="copy-btn" onClick={() => handleCopy(acc.number)}>복사</button>
+              <div className="account-info">
+                <div className="account-bank">{acc.bank} {acc.account}</div>
+                <div className="account-name">{acc.name}</div>
               </div>
+              <button className="copy-btn" onClick={() => handleCopy(acc.account)}>복사</button>
+            </div>
             ))}
           </div>
         </div>

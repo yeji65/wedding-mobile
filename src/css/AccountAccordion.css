@@ -38,18 +38,29 @@
 }
 
 .account-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: white;
-    padding: 12px;
-    margin-top: 5px;
-    border-radius: 10px;
-    font-size: 0.9rem;
-    color: #444;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between; /* 버튼 오른쪽 끝 */
+  align-items: flex-start;        /* account-info 위쪽 정렬 */
+  background: white;
+  padding: 12px;
+  margin-top: 5px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  color: #444;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
+.account-info {
+  display: flex;
+  flex-direction: column; /* 위: 은행/계좌, 아래: 이름 */
+  align-items: flex-start; /* 둘 다 왼쪽 정렬 */
+  gap: 4px; /* 위/아래 간격 */
+}
+
+.account-bank,
+.account-name {
+  text-align: left;
+}
 .copy-btn {
     padding: 6px 10px;
     border: none;

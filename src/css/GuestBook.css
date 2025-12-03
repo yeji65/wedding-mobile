@@ -98,27 +98,30 @@
 
 .input-row {
   display: flex;
-  align-items: flex-start;
-  margin-bottom: 12px;
-  width: 100%;
+  flex-direction: row;
+  align-items: flex-start;     
+  gap: 8px;
+  flex-wrap: nowrap;       
 }
 
 .input-row label {
-  width: 26px;
+  flex-shrink: 0;           
+  width: 40px;              
   font-weight: bold;
   font-size: 14px;
-  margin-top: 6px;
+  /* padding-right: 10px; */
+  padding-top: 10px;
 }
 
 .underline-input {
-  flex: 1;
+  flex: 1 1 auto;           /* 남은 공간 채움, 최소 줄 바꿈 안함 */
+  min-width: 80px;          /* 너무 좁아지면 최소폭 */
   border: none;
   border-bottom: 1px solid #aaa;
   padding: 6px 4px;
   font-size: 14px;
   background: transparent;
   outline: none;
-  margin-left : 10px;
   font-family: 'GowunDodum-Regular';
 }
 
@@ -131,23 +134,21 @@
   resize: none;
   outline: none;
   line-height: 28px;
-  height: 115px;
+  height: 135px;
   background-image: linear-gradient(to bottom, 
   transparent 23px,
   #aaa 25px,
   transparent 1px);
   background-size: 100% 29px;
   background-repeat: repeat-y;
-  margin-left : 10px;
   font-family: 'GowunDodum-Regular';
+  margin-top: 5px;
 }
-
 
 .button-row {
   display: flex;
   justify-content: center;
   gap: 20px;
-
 }
 
 .button-row button {

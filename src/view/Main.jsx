@@ -130,17 +130,6 @@ export const Main = ({ showIntro }) => {
   };
   /****************************************************/
 
-  //임시
-  const accounts = {
-    groom: [
-      { bank: '신한', number: '110-123-456789', name: '최재만' },
-      { bank: '신한', number: '110-123-456789', name: '최도현' },
-    ],
-    bride: [
-      { bank: '국민', number: '123-4567-8901', name: '김지은' },
-      { bank: '카카오', number: '3333-12-3456789', name: '박지현' },
-    ],
-  };
   const fetchUsers = async () => {
     // ... try, catch 생략
     const usersCollectionRef = collection(db, 'users'); // 
@@ -247,12 +236,12 @@ export const Main = ({ showIntro }) => {
         <FadeInSection>
           <div className='content-invite'>
             <h3>초대합니다</h3>
-            <p>서로가 마주보며 다져온 사랑을</p>
-            <p>이제 함께 한 곳을 바라보며</p>
-            <p>걸어갈 수 있는 큰 사랑으로 키우고자 합니다</p>
-            <p>저희 두사람이 사랑의 이름으로</p>
-            <p>지켜나갈 수 있게 앞날을</p>
-            <p>출복해 주시면 감사하겠습니다.</p>
+            <p>첫만남은 친구였고,</p>
+            <p>사랑에 빠져 연인이 되었고,</p>
+            <p>이제는 가족이 되려고 합니다.</p>
+            <p>꽃이 피어나는 봄,</p>
+            <p>부부로서 저희의 새로운 시작을 </p>
+            <p>함께 해주세요</p>
           </div>
 
           <div style={{ padding: 20, fontWeight: 600 }}>
@@ -363,32 +352,47 @@ export const Main = ({ showIntro }) => {
           )}
           </div>
 
-            <div className="map-links">
-              <div className="map-item"
-                onClick={() => openMapLink(
+          <div className="map-links">
+            <button
+              className="map-item"
+              onClick={() =>
+                openMapLink(
                   "nmap://place?id=37590335",
                   "https://map.naver.com/p/entry/place/37590335?c=15.00,0,0,0,dh"
-                )}>
-                <img className="map-icon" src={naverMap} />
-                <span className="map-label">네이버 지도</span>
-              </div>
-              <div className="map-item"
-                onClick={() => openMapLink(
+                )
+              }
+            >
+              <img className="map-icon" src={naverMap} alt="네이버 지도" />
+              <span className="map-label">네이버 지도</span>
+            </button>
+
+            <button
+              className="map-item"
+              onClick={() =>
+                openMapLink(
                   "kakaonavi://navigate?name=WI컨벤션&x=127.0358725&y=37.2871678",
                   "https://kko.kakao.com/IbXR0A78YC"
-                )} >
-                <img className="map-icon" src={kakaoNavi} />
-                <span className="map-label">카카오 내비</span>
-              </div>
-              <div className="map-item"
-                onClick={() => openMapLink(
+                )
+              }
+            >
+              <img className="map-icon" src={kakaoNavi} alt="카카오 내비" />
+              <span className="map-label">카카오 내비</span>
+            </button>
+
+            <button
+              className="map-item"
+              onClick={() =>
+                openMapLink(
                   "tmap://route?goalname=WI컨벤션&goalx=127.0358725&goaly=37.2871678",
                   "https://www.tmap.co.kr/tmap2/mobile/retrievePoiDetail.do?searchKeyword=WI컨벤션"
-                )}>
-                <img className="map-icon" src={tMap} />
-                <span className="map-label">티맵</span>
-              </div>
-            </div>
+                )
+              }
+            >
+              <img className="map-icon" src={tMap} alt="티맵" />
+              <span className="map-label">티맵</span>
+            </button>
+          </div>
+
           </FadeInSection>
           <FadeInSection>
             <div className='content-directions-text'>
@@ -445,8 +449,8 @@ export const Main = ({ showIntro }) => {
               전해주시는 진심은 소중하게 간직하여 <br />
               좋은 부부의 모습으로 보답하겠습니다.
             </p>
-            <AccordionSection title="신랑측 계좌번호" list={accounts.groom} />
-            <AccordionSection title="신부측 계좌번호" list={accounts.bride} />
+            <AccordionSection title="신랑측 계좌번호" list={user?.filter(d=>d.type == "groom")} />
+            <AccordionSection title="신부측 계좌번호" list={user?.filter(d=>d.type == "bride")} />
           </div>
         </FadeInSection>
         <FadeInSection>
