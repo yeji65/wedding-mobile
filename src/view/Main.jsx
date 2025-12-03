@@ -145,6 +145,8 @@ export const Main = ({ showIntro }) => {
   }, [])
 
   //팝업 true일경우 스크롤 금지
+  const isGalleryModalOpen = selectedIndex !== null;
+
   useEffect(() => {
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
   
@@ -153,7 +155,7 @@ export const Main = ({ showIntro }) => {
   };
 
   if (isMobile) {
-    if (isCommunicationSubModal || isModal || isCommunicationModal || showPasswordModal.state || showIntro || (selectedIndex !== null && selectedIndex >= 0)) {
+    if (isCommunicationSubModal || isModal || isCommunicationModal || showPasswordModal.state || showIntro || isGalleryModalOpen) {
       document.body.style.overflow = 'hidden';
       // 모바일 터치 스크롤 완전 방지
       document.body.addEventListener('touchmove', preventScroll, { passive: false });
@@ -167,7 +169,7 @@ export const Main = ({ showIntro }) => {
   return () => {
     document.body.removeEventListener('touchmove', preventScroll);
   };
-}, [isCommunicationSubModal, isModal, isCommunicationModal, showPasswordModal.state, showIntro, selectedIndex]);
+}, [isCommunicationSubModal, isModal, isCommunicationModal, showPasswordModal.state, showIntro, isGalleryModalOpen]);
 
 
 
