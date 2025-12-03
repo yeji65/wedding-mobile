@@ -153,7 +153,7 @@ export const Main = ({ showIntro }) => {
   };
 
   if (isMobile) {
-    if (isCommunicationSubModal || isModal || isCommunicationModal || showPasswordModal.state || showIntro || selectedIndex !== null) {
+    if (isCommunicationSubModal || isModal || isCommunicationModal || showPasswordModal.state || showIntro || (selectedIndex !== null && selectedIndex >= 0)) {
       document.body.style.overflow = 'hidden';
       // 모바일 터치 스크롤 완전 방지
       document.body.addEventListener('touchmove', preventScroll, { passive: false });
@@ -311,7 +311,7 @@ export const Main = ({ showIntro }) => {
             </p>
             {/* <Map /> */}
      
-        <div style={{ position: 'relative', width: '100%', height: '280px', }}>
+        <div style={{ position: 'relative', width: '100%', height: '280px' }}>
         <div 
           ref={mapRef} 
           style={{ width: '100%', height: '100%' }}
