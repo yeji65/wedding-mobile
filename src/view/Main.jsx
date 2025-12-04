@@ -24,16 +24,17 @@ import FadeInSection from '@/components/FadeInSection';
 import GuestBook from '@/components/GuestBook';
 import CommunicationSubModal from '@/components/CommunicationSubModal';
 import PasswordModal from '@/components/PasswordModal';
-import sample1 from '@/images/sample1.png';
-import sample2 from '@/images/sample2.jpg';
-import sample3 from '@/images/sample3.png';
-import sample4 from '@/images/sample4.png';
-import sample5 from '@/images/sample5.jpg';
+import Image1 from '@/images/Image1.png';
+import Image2 from '@/images/Image2.jpg';
+import Image3 from '@/images/Image3.png';
+import Image4 from '@/images/Image4.png';
+import Image5 from '@/images/Image5.jpg';
 import sample6 from '@/images/sample6.jpg';
 import sample7 from '@/images/sample7.jpg';
-import sample8 from '@/images/sample8.jpg';
+import Image8 from '@/images/Image8.jpg';
+import Image9 from '@/images/Image9.jpg';
 import main from '@/images/main.jpg';
-import mainSpt from '@/images/mainSpt.jpg';
+import mainSb from '@/images/mainSb.jpg';
 import footer from '@/images/footer.jpg';
 import flower from '@/images/flower.png';
 import heart from '@/images/heart.png';
@@ -99,7 +100,7 @@ export const Main = ({ showIntro }) => {
   /**********************  갤러리  ********************/
   /****************************************************/
   const images = [
-    sample2, sample3, sample4, sample5, sample6, sample7, sample8, sample1, sample5, profileImg1
+    Image1, Image2, Image3, Image4, sample6, sample7, Image5, Image8, Image9, profileImg1
   ];
 
   const prevImage = () => {
@@ -250,7 +251,7 @@ export const Main = ({ showIntro }) => {
           </div>
         </FadeInSection>
         <FadeInSection>
-          <img className="main-img" src={mainSpt} />
+          <img className="main-img" src={mainSb} />
 
         </FadeInSection>
         <FadeInSection>
