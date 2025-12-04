@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import '@/css/Main.css'
 import '@/css/Calendar.css'
-import gifImage from '@/images/img.gif';
-import loveImage from '@/images/love.png';
 import ContactModal from '@/components/ContactModal';
 import profileImg1 from '@/images/profileImg1.jpg';
 import profileImg2 from '@/images/profileImg2.jpg';
@@ -12,10 +10,6 @@ import Map from '@/components/Map';
 import naverMap from '@/images/naverMap.png';
 import kakaoNavi from '@/images/kakaoNavi.png';
 import tMap from '@/images/tMap.png';
-import car from '@/images/car.png';
-import bus from '@/images/bus.png';
-import subway from '@/images/subway.png';
-import parking from '@/images/parking.png';
 import CommunicationModal from '@/components/CommunicationModal';
 import AccordionSection from '@/components/AccordionSection';
 import { db } from "@/firebase";
@@ -24,10 +18,10 @@ import FadeInSection from '@/components/FadeInSection';
 import GuestBook from '@/components/GuestBook';
 import CommunicationSubModal from '@/components/CommunicationSubModal';
 import PasswordModal from '@/components/PasswordModal';
-import Image1 from '@/images/Image1.png';
+import Image1 from '@/images/Image1.jpg';
 import Image2 from '@/images/Image2.jpg';
-import Image3 from '@/images/Image3.png';
-import Image4 from '@/images/Image4.png';
+import Image3 from '@/images/Image3.jpg';
+import Image4 from '@/images/Image4.jpg';
 import Image5 from '@/images/Image5.jpg';
 import sample6 from '@/images/sample6.jpg';
 import sample7 from '@/images/sample7.jpg';
