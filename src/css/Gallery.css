@@ -57,6 +57,12 @@
   object-fit: cover;
 }
 
+.gallery-item img[alt="img-0-1"],
+.gallery-item img[alt="img-0-2"],
+.gallery-item img[alt="img-1-0"] {
+  object-position: top;
+}
+
 /* 오버레이 */
 .overlay {
   position: absolute;

@@ -23,7 +23,7 @@ const Gallery = ({ images, setSelectedIndex }) => {
                   key={globalIndex}
                   onClick={() => setSelectedIndex(globalIndex)}
                 >
-                  <img src={src} alt={`img-${idx}`} />
+                  <img src={src} alt={`img-${colIdx}-${idx}`} />
                   <div className="overlay">
                     <span>클릭해서 확대</span>
                   </div>
