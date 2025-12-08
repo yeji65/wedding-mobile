@@ -55,6 +55,32 @@ body {
     justify-content: center;
     align-items: center;
 }
+.header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    margin-bottom: 8px;
+}
+
+.music-toggle {
+    background: none !important;   /* 동그라미 배경 제거 */
+    border: none !important;       /* 테두리 제거 */
+    padding: 0 !important;         /* 버튼 여백 제거 */
+    display: flex;                 
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.music-toggle svg {
+    width: 32px;
+    height: 32px;
+}
+
+.music-toggle:active {
+    transform: scale(0.92);
+}
 
 
 .main-img {

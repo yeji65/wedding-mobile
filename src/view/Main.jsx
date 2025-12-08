@@ -222,10 +222,83 @@ export const Main = ({ showIntro }) => {
   }
 };
 
+  const [isPlaying, setIsPlaying] = useState(false);
+      const audioRef = useRef(null);  
+
+  const togglePlay = () => {
+    if (!audioRef.current) return;
+
+    if (isPlaying) {
+      audioRef.current.pause();   // 🔇 정지
+    } else {
+      audioRef.current.play().catch(err => {
+        console.log("재생 실패(모바일은 사용자 터치 필요):", err);
+      });                       
+    }
+
+    setIsPlaying(prev => !prev);
+  };
+
   return (
     <div className="app-container">
       <div className="invitation-container">
-        <p className='subject'>WEDDING INVITATION</p>
+        <div className="header-row">
+          <p className="subject">WEDDING INVITATION</p>
+          <div className="music-toggle" onClick={togglePlay}>
+              {isPlaying ? (
+                  // 🔊 ON 아이콘
+                  <svg viewBox="0 0 24 24" fill="black">
+                    <path
+                      d="M5 10.5V13.5H7.8L11.3 17C11.7 17.4 12 17.2 12 16.7V7.3C12 6.8 11.7 6.6 11.3 7L7.8 10.5H5Z"
+                      fill="black"
+                      stroke="black"
+                      strokeWidth="0.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path d="M14 10.5V13.5C14.8 13.2 15.3 12.6 15.3 12C15.3 11.4 14.8 10.8 14 10.5Z"/>
+                    <path
+                      d="M16.2 9C17.6 10.1 18.3 11 18.3 12C18.3 13 17.6 13.9 16.2 15"
+                      stroke="black"
+                      strokeWidth="1.5"
+                      fill="none"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+              ) : (
+                  // 🔇 OFF 아이콘
+                  <svg viewBox="0 0 24 24" fill="black">
+                    <path
+                      d="M5 10.5V13.5H7.8L11.3 17C11.7 17.4 12 17.2 12 16.7V7.3C12 6.8 11.7 6.6 11.3 7L7.8 10.5H5Z"
+                      fill="black"
+                      stroke="black"
+                      strokeWidth="0.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path d="M14 10.5V13.5C14.8 13.2 15.3 12.6 15.3 12C15.3 11.4 14.8 10.8 14 10.5Z"/>
+                    <path
+                      d="M16.2 9C17.6 10.1 18.3 11 18.3 12C18.3 13 17.6 13.9 16.2 15"
+                      stroke="black"
+                      strokeWidth="1.5"
+                      fill="none"
+                      strokeLinecap="round"
+                    />
+                    <line
+                      x1="5.5"
+                      y1="17.5"
+                      x2="18.5"
+                      y2="6.5"
+                      stroke="black"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                    />
+                  </svg>
+              )}
+          </div>
+          {/* <audio ref={audioRef} src="/music/bgm.mp3" loop preload="auto" /> */}
+      </div>
+
         <div className="title">
           <div className="title-name">26 | 03 | 28</div>
           <span className="title-sub">토요일</span>
