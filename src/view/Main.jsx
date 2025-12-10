@@ -142,69 +142,69 @@ export const Main = ({ showIntro }) => {
   //팝업 true일경우 스크롤 금지
   const isGalleryModalOpen = selectedIndex !== null;
 
-  useEffect(() => {
-  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-  
-  const preventScroll = (e) => {
-    e.preventDefault();
-  };
+    useEffect(() => {
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      
+      const preventScroll = (e) => {
+        e.preventDefault();
+      };
 
-  if (isMobile) {
-    if (isCommunicationSubModal || isModal || isCommunicationModal || showPasswordModal.state || showIntro || isGalleryModalOpen) {
-      document.body.style.overflow = 'hidden';
-      // 모바일 터치 스크롤 완전 방지
-      document.body.addEventListener('touchmove', preventScroll, { passive: false });
-    } else {
-      document.body.style.overflow = '';
-      document.body.removeEventListener('touchmove', preventScroll);
-    }
-  }
+      if (isMobile) {
+        if (isCommunicationSubModal || isModal || isCommunicationModal || showPasswordModal.state || showIntro || isGalleryModalOpen) {
+          document.body.style.overflow = 'hidden';
+          // 모바일 터치 스크롤 완전 방지
+          document.body.addEventListener('touchmove', preventScroll, { passive: false });
+        } else {
+          document.body.style.overflow = '';
+          document.body.removeEventListener('touchmove', preventScroll);
+        }
+      }
 
-  // cleanup
-  return () => {
-    document.body.removeEventListener('touchmove', preventScroll);
-  };
-}, [isCommunicationSubModal, isModal, isCommunicationModal, showPasswordModal.state, showIntro, isGalleryModalOpen]);
+      // cleanup
+      return () => {
+        document.body.removeEventListener('touchmove', preventScroll);
+      };
+  }, [isCommunicationSubModal, isModal, isCommunicationModal, showPasswordModal.state, showIntro, isGalleryModalOpen]);
 
 
 
   const mapRef = useRef(null);
   const mapInstance = useRef(null);
 
-  useEffect(() => {
-    if (!window.kakao) return;
+    useEffect(() => {
+      if (!window.kakao) return;
 
- window.kakao.maps.load(() => {
-    const container = mapRef.current;
-    const options = {
-      center: new window.kakao.maps.LatLng(37.2864882, 127.035815), // 지도 중심좌표
-      level: 3,
-      draggable: islock,    // 지도 드래그 금지
-      scrollwheel: islock,
-    };
-    const map = new window.kakao.maps.Map(container, options);
-    mapInstance.current = map;
+  window.kakao.maps.load(() => {
+      const container = mapRef.current;
+      const options = {
+        center: new window.kakao.maps.LatLng(37.2864882, 127.035815), // 지도 중심좌표
+        level: 3,
+        draggable: islock,    // 지도 드래그 금지
+        scrollwheel: islock,
+      };
+      const map = new window.kakao.maps.Map(container, options);
+      mapInstance.current = map;
 
-    // 마커 위치
-    const markerPosition = new window.kakao.maps.LatLng(37.2864882, 127.035865);
+      // 마커 위치
+      const markerPosition = new window.kakao.maps.LatLng(37.2864882, 127.035865);
 
 
-    const imageSrc = "https://map.pstatic.net/resource/api/v2/image/maps/selected-marker/229169@2x.png?version=18&mapping=marker-155";
-    const imageSize = new window.kakao.maps.Size(45, 55); // 이미지 크기
-    const imageOption = { offset: new window.kakao.maps.Point(22, 55) }; // 기준점
+      const imageSrc = "https://map.pstatic.net/resource/api/v2/image/maps/selected-marker/229169@2x.png?version=18&mapping=marker-155";
+      const imageSize = new window.kakao.maps.Size(45, 55); // 이미지 크기
+      const imageOption = { offset: new window.kakao.maps.Point(22, 55) }; // 기준점
 
-    const markerImage = new window.kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
+      const markerImage = new window.kakao.maps.MarkerImage(imageSrc, imageSize, imageOption);
 
-    // 마커 생성
-    const marker = new window.kakao.maps.Marker({
-      position: markerPosition,
-      image: markerImage,
+      // 마커 생성
+      const marker = new window.kakao.maps.Marker({
+        position: markerPosition,
+        image: markerImage,
+      });
+
+      // 마커 지도에 표시
+      marker.setMap(map);
     });
-
-    // 마커 지도에 표시
-    marker.setMap(map);
-  });
-  }, []);
+    }, []);
 
     const toggleLock = () => {
     if (!mapInstance.current) return;
@@ -243,6 +243,7 @@ export const Main = ({ showIntro }) => {
     <div className="app-container">
       <div className="invitation-container">
         <div className="header-row">
+          <div class="left-space"></div>
           <p className="subject">WEDDING INVITATION</p>
           <div className="music-toggle" onClick={togglePlay}>
               {isPlaying ? (
@@ -300,7 +301,7 @@ export const Main = ({ showIntro }) => {
       </div>
 
         <div className="title">
-          <div className="title-name">26 | 03 | 28</div>
+          <div className="title-name">2026 | 03 | 28</div>
           <span className="title-sub">토요일</span>
         </div>
         <img className="main-img" src={main} />

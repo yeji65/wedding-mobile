@@ -56,10 +56,10 @@ body {
     align-items: center;
 }
 .header-row {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr; /* 좌 - 중간 - 우 */
     align-items: center;
-    justify-content: space-between;
-    padding: 0 12px;
+    padding: 8px 12px;
     margin-bottom: 8px;
 }
 
@@ -67,15 +67,15 @@ body {
     background: none !important;   /* 동그라미 배경 제거 */
     border: none !important;       /* 테두리 제거 */
     padding: 0 !important;         /* 버튼 여백 제거 */
-    display: flex;                 
-    align-items: center;
-    justify-content: center;
+    justify-self: end;  
     cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 
 .music-toggle svg {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
 }
 
 .music-toggle:active {
@@ -102,6 +102,7 @@ body {
 
 .invitation-container .subject {
     font-family: 'Cafe24Oneprettynight';
+     text-align: center;
 }
 
 @font-face {
