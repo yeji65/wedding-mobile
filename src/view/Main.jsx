@@ -34,6 +34,10 @@ import flower from '@/images/flower.png';
 import heart from '@/images/heart.png';
 import lock from '@/images/lock.png';
 import unlock from '@/images/unlock.png';
+import location from '@/images/location_icon.png';
+import bus from '@/images/bus_icon.png';
+import subway from '@/images/subway_icon.png';
+import car from '@/images/car_icon.png';
 import KakaoShareButton from '@/components/KakaoShareButton';
 
 export const Main = ({ showIntro }) => {
@@ -243,7 +247,7 @@ export const Main = ({ showIntro }) => {
     <div className="app-container">
       <div className="invitation-container">
         <div className="header-row">
-          <div class="left-space"></div>
+          <div className="left-space"></div>
           <p className="subject">WEDDING INVITATION</p>
           <div className="music-toggle" onClick={togglePlay}>
               {isPlaying ? (
@@ -304,7 +308,9 @@ export const Main = ({ showIntro }) => {
           <div className="title-name">2026 | 03 | 28</div>
           <span className="title-sub">토요일</span>
         </div>
-        <img className="main-img" src={main} />
+        <div className="main-img-wrapper">
+          <img className="main-img" src={main} alt="main" />
+        </div>
         <h3>{user[0]?.name + " & " + user[3]?.name}</h3>
         <p>2026년 3월 28일 (토) 오전 11시</p>
         <p>WI컨벤션 W홀</p>
@@ -488,8 +494,10 @@ export const Main = ({ showIntro }) => {
             <div className='content-directions-text'>
                <FadeInSection>
               <div className='content-directions-box'>
-                {/* <img className="map-icon" src={car} /> */}
-                <span>WI컨벤션</span>
+                <div className='content-directions-box-header'>
+                  <img className="map-icon" src={location} style={{paddingRight:"6px"}}/>
+                  <span>WI컨벤션</span>
+                </div>
                 <p>경기도 수원시 팔달구 월드컵로 310 (우만동 258) <br />수원월드컵 경기장 내 </p>
                 <p>* 수원월드컵경기장 P7주차장 입력</p>
                 <p>* P6주차장은 혼주전용 주차장입니다.</p>
@@ -497,8 +505,10 @@ export const Main = ({ showIntro }) => {
               </FadeInSection>
               <FadeInSection>
               <div className='content-directions-box'>
-                {/* <img className="map-icon" src={parking} /> */}
-                <span> 주차</span>
+                <div className='content-directions-box-header'>
+                  <img className="map-icon" src={car} style={{paddingRight:"6px"}}/>
+                  <span> 주차</span>
+                </div>
                 <p>웨딩홀 P7 또는 P8주차장 이용</p>
                 <p>* P6주차장은 혼주전용 주차장입니다.</p>
                 <p>2시간 무료주차, 로비 태블릿 차량번호 입력</p>
@@ -506,8 +516,10 @@ export const Main = ({ showIntro }) => {
               </FadeInSection>
               <FadeInSection>
               <div className='content-directions-box'>
-                {/* <img className="map-icon" src={bus} /> */}
-                <span>버스</span>
+                <div className='content-directions-box-header'>
+                  <img className="map-icon" src={bus} style={{paddingRight:"6px"}}/>
+                  <span>버스</span>
+                </div>
                 <p>* 셔틀버스 : 수인분단선 수원시청역 9번출구 앞 <br />
                   (정시기준 약 20분간격 운행)</p>
                 <p>[수원월드컵경기장, 동성중학교 하차]</p>
@@ -519,8 +531,10 @@ export const Main = ({ showIntro }) => {
                </FadeInSection>
               <FadeInSection>
               <div className='content-directions-box'>
-                {/* <img className="map-icon" src={subway} /> */}
-                <span>지하철</span>
+                <div className='content-directions-box-header'>
+                  <img className="map-icon" src={subway} style={{paddingRight:"6px"}}/>
+                  <span>지하철</span>
+                </div>
                 <p>[1호선] 수원역 하차 후 택시로 15-20분 이동</p>
                 <p>[수인분당선] 수원시청역 하차 후 택시로 10분 이동</p>
               </div>
