@@ -589,10 +589,9 @@ export const Main = ({ showIntro }) => {
       {
         selectedIndex !== null && (
               <div className="modal"
-              style={{  touchAction: panX }} /* 좌우 터치 스와이프만 허용 */
+                  style={{  touchAction: 'pan-X' }} /* 좌우 터치 스와이프만 허용 */
                   onClick={() => setSelectedIndex(null)} 
                   onTouchStart={(e) => {window.touchStartX = e.touches[0].clientX;}}
-                  onTouchMove={(e) => { e.preventDefault(); }}
                   onTouchEnd={(e) => {
                                         const endX = e.changedTouches[0].clientX;
                                         const diff = endX - window.touchStartX;
