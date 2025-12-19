@@ -1,5 +1,6 @@
 .scroll-wrapper-horizontal {
   overflow-x: auto;
+  overflow-y: hidden;      /* 세로 스크롤 막기 */
   touch-action: pan-x;     /* 좌우 터치 스와이프만 허용 */
   -webkit-overflow-scrolling: touch; /* iOS 부드러운 스크롤 */
 }
@@ -118,13 +119,6 @@
 .arrow.right {
   width: 60px;
   right: 20px;
-}
-
-
-.modal img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 10px;
 }
 
 .modal-close {

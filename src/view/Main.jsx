@@ -143,27 +143,14 @@ export const Main = ({ showIntro }) => {
     fetchUsers()
   }, [])
 
-  //팝업 true일경우 스크롤 금지
-  const isAnyModalOpen =
-    isModal ||
-    isCommunicationModal ||
-    isCommunicationSubModal ||
-    showPasswordModal.state ||
-    showIntro ||
-    selectedIndex !== null; // 갤러리 모달
-
-
+ //팝업 true일경우 스크롤 금지
   useEffect(() => {
-    if (isAnyModalOpen) {
+    if (isCommunicationSubModal || isModal || isCommunicationModal || showPasswordModal.state || showIntro || selectedIndex !== null) {
       document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = '';
+      document.body.style.overflow = 'unset';
     }
-
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isAnyModalOpen]);
+  }, [isCommunicationSubModal, isModal, isCommunicationModal, showPasswordModal.state, showIntro, selectedIndex]);
 
 
   const mapRef = useRef(null);
