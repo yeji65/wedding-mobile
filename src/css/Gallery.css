@@ -2,6 +2,7 @@
   overflow-x: auto;
   overflow-y: hidden;      /* 세로 스크롤 막기 */
   -webkit-overflow-scrolling: touch; /* iOS 부드러운 스크롤 */
+   overflow-y: hidden;    /* 세로 스크롤 막기 */
 }
 /* 스크롤바 트랙 */
 .content-gallery ::-webkit-scrollbar {

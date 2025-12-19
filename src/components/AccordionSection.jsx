@@ -30,15 +30,23 @@ const AccordionSection = ({ title, list }) => {
           }}
         >
           <div className="accordion-inner" ref={contentRef}>
-            {list?.map((acc, i) => (
-              <div className="account-row" key={i}>
-              <div className="account-info">
-                <div className="account-bank">{acc.bank} {acc.account}</div>
-                <div className="account-name">{acc.name}</div>
-              </div>
-              <button className="copy-btn" onClick={() => handleCopy(acc.account)}>복사</button>
-            </div>
-            ))}
+            {list?.filter(acc => acc.account)  
+              .map((acc, i) => (
+                <div className="account-row" key={i}>
+                  <div className="account-info">
+                    <div className="account-bank">
+                      {acc.bank} {acc.account}
+                    </div>
+                    <div className="account-name">{acc.name}</div>
+                  </div>
+                  <button
+                    className="copy-btn"
+                    onClick={() => handleCopy(acc.account)}
+                  >
+                    복사
+                  </button>
+                </div>
+              ))}
           </div>
         </div>
       </div>
