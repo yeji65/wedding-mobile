@@ -144,13 +144,26 @@ export const Main = ({ showIntro }) => {
   }, [])
 
  //팝업 true일경우 스크롤 금지
+   const isAnyModalOpen =
+    isModal ||
+    isCommunicationModal ||
+    isCommunicationSubModal ||
+    showPasswordModal.state ||
+    showIntro ||
+    selectedIndex !== null; // 갤러리 모달
+
+
   useEffect(() => {
-    if (isCommunicationSubModal || isModal || isCommunicationModal || showPasswordModal.state || showIntro || selectedIndex !== null) {
+    if (isAnyModalOpen) {
       document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
     }
-  }, [isCommunicationSubModal, isModal, isCommunicationModal, showPasswordModal.state, showIntro, selectedIndex]);
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isAnyModalOpen]);
 
 
   const mapRef = useRef(null);
