@@ -23,7 +23,7 @@ import Image2 from '@/images/Image2.jpg';
 import Image3 from '@/images/Image3.jpg';
 import Image4 from '@/images/Image4.jpg';
 import Image5 from '@/images/Image5.jpg';
-import sample6 from '@/images/sample6.jpg';
+import Image6 from '@/images/Image6.jpg';
 import sample7 from '@/images/sample7.jpg';
 import Image8 from '@/images/Image8.jpg';
 import Image9 from '@/images/Image9.jpg';
@@ -98,7 +98,7 @@ export const Main = ({ showIntro }) => {
   /**********************  갤러리  ********************/
   /****************************************************/
   const images = [
-    Image1, Image2, Image3, Image4, sample6, sample7, Image5, Image8, Image9, profileImg1
+    Image1, Image2, Image3, Image4, Image6, sample7, Image5, Image8, Image9, profileImg1
   ];
 
   const prevImage = () => {
@@ -144,32 +144,26 @@ export const Main = ({ showIntro }) => {
   }, [])
 
   //팝업 true일경우 스크롤 금지
-  const isGalleryModalOpen = selectedIndex !== null;
+  const isAnyModalOpen =
+    isModal ||
+    isCommunicationModal ||
+    isCommunicationSubModal ||
+    showPasswordModal.state ||
+    showIntro ||
+    selectedIndex !== null; // 갤러리 모달
 
-    useEffect(() => {
-      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-      
-      const preventScroll = (e) => {
-        e.preventDefault();
-      };
 
-      if (isMobile) {
-        if (isCommunicationSubModal || isModal || isCommunicationModal || showPasswordModal.state || showIntro || isGalleryModalOpen) {
-          document.body.style.overflow = 'hidden';
-          // 모바일 터치 스크롤 완전 방지
-          document.body.addEventListener('touchmove', preventScroll, { passive: false });
-        } else {
-          document.body.style.overflow = '';
-          document.body.removeEventListener('touchmove', preventScroll);
-        }
-      }
+  useEffect(() => {
+    if (isAnyModalOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
 
-      // cleanup
-      return () => {
-        document.body.removeEventListener('touchmove', preventScroll);
-      };
-  }, [isCommunicationSubModal, isModal, isCommunicationModal, showPasswordModal.state, showIntro, isGalleryModalOpen]);
-
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isAnyModalOpen]);
 
 
   const mapRef = useRef(null);
