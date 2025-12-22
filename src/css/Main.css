@@ -318,6 +318,7 @@ body {
     display: inline-block;
     overflow: hidden;
     padding-top: 15%;
+    padding-bottom: 15%;
 }
 
 .footer-image {
@@ -353,7 +354,7 @@ body {
     border: none;
     cursor: pointer;
     color: #444547;
-    font-size: small;
+    font-size: 14px;
     font-family: 'GowunDodum-Regular';
 }
 

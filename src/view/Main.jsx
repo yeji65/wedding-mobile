@@ -572,7 +572,7 @@ export const Main = ({ showIntro }) => {
         </FadeInSection>
         <div className="footer">
           <img src={footer} className="footer-image" alt="footer" />
-          <h1 className="footer-image-text">글씨 테스트</h1>
+          {/* <h1 className="footer-image-text">글씨 테스트</h1> */}
         </div>
         <KakaoShareButton />
 
