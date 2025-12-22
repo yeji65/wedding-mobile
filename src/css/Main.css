@@ -191,7 +191,7 @@ body {
 
 .profile-img {
     width: 37%;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     object-fit: cover;
     display: block;
 }
