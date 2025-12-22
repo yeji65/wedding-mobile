@@ -60,7 +60,8 @@
 .gallery-item img[alt="img-0-1"],
 .gallery-item img[alt="img-0-2"],
 .gallery-item img[alt="img-1-0"],
-.gallery-item img[alt="img-2-0"] {
+.gallery-item img[alt="img-2-0"],
+.gallery-item img[alt="img-3-0"] {
   object-position: top;
 }
 

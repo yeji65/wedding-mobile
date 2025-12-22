@@ -29,6 +29,8 @@ import Image8 from '@/images/Image8.jpg';
 import Image9 from '@/images/Image9.jpg';
 import Image10 from '@/images/Image10.jpg';
 import Image11 from '@/images/Image11.jpg';
+import Image12 from '@/images/Image12.jpg';
+import Image13 from '@/images/Image13.jpg';
 import main from '@/images/main.jpg';
 import mainSb from '@/images/mainSb.jpg';
 import footer from '@/images/footer.jpg';
@@ -100,7 +102,7 @@ export const Main = ({ showIntro }) => {
   /**********************  갤러리  ********************/
   /****************************************************/
   const images = [
-    Image1, Image2, Image3, Image4,Image5, Image6, Image7, Image8, Image9, Image10, Image11
+    Image1, Image2, Image3, Image4, Image13, Image6, Image7, Image8, Image9, Image10, Image11, Image12
   ];
 
   const prevImage = () => {
@@ -309,7 +311,7 @@ export const Main = ({ showIntro }) => {
         </div>
         <h3>{user[0]?.name + " & " + user[3]?.name}</h3>
         <p>2026년 3월 28일 (토) 오전 11시</p>
-        <p>WI컨벤션 W홀</p>
+        <p style={{paddingBottom:'30%'}}>WI컨벤션 W홀</p>
         {/* <FadeInSection>
           <div >
             <img style={{ width: "30px", padding: "80px 0px 0px" }} src={flower} />
