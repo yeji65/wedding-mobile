@@ -338,20 +338,21 @@ export const Main = ({ showIntro }) => {
           </div>
         </FadeInSection>
         <FadeInSection>
-          <div style={{ paddingTop: 50, paddingBottom: 20, fontWeight: 600 }}>
+          <div className="profile">
+            <img className="profile-img" src={Image4} />
+            <img style={{ width: "5%", height: "5%", paddingTop: 90, color: "#444547" }} src={heart} />
+            <img className="profile-img" src={Image5} />
+          </div>
+        </FadeInSection>
+        <FadeInSection>
+          <div style={{ paddingTop: 20, paddingBottom: 20, fontWeight: 600 }}>
             <p>{user[1]?.name + " ⦁ " + user[2]?.name + " 의 장남 " + user[0]?.name}</p>
             <p>{user[4]?.name + " ⦁ " + user[5]?.name + " 의 차녀 " + user[3]?.name}</p>
           </div>
 
-          <button className="btn-outline" onClick={() => setIsModal(isModal => !isModal)}>연락하기</button>
+          {/* <button className="btn-outline" onClick={() => setIsModal(isModal => !isModal)}>연락하기</button> */}
         </FadeInSection>
-        <FadeInSection>
-          <div className="profile">
-            <img className="profile-img" src={Image4} />
-            <img style={{ width: "5%", height: "5%", paddingTop: 60, color: "#444547" }} src={heart} />
-            <img className="profile-img" src={Image5} />
-          </div>
-        </FadeInSection>
+        
         <FadeInSection>
           <div className="calendar-wrapper">
             <h3>일정</h3>
