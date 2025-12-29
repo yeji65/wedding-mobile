@@ -31,6 +31,7 @@ import Image10 from '@/images/Image10.jpg';
 import Image11 from '@/images/Image11.jpg';
 import Image12 from '@/images/Image12.jpg';
 import Image13 from '@/images/Image13.jpg';
+import Image99 from '@/images/Image99.jpg';
 import main from '@/images/main.jpg';
 import mainSb from '@/images/mainSb.jpg';
 import footer from '@/images/footer.jpg';
@@ -339,7 +340,7 @@ export const Main = ({ showIntro }) => {
         </FadeInSection>
         <FadeInSection>
           <div className="profile">
-            <img className="profile-img" src={Image4} />
+            <img className="profile-img" src={Image99} />
             <img style={{ width: "5%", height: "5%", paddingTop: 90, color: "#444547" }} src={heart} />
             <img className="profile-img" src={Image5} />
           </div>
