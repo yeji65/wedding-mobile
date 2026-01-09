@@ -96,8 +96,16 @@
   overflow-y: hidden;  /* 세로 스크롤 완전 차단 */
 }
 
-body.modal-open {
-  overflow: hidden;
+.gallery-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover::before {
+  transform: scale(1.03);
 }
 
 
