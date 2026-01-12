@@ -2,11 +2,8 @@ import React, { useEffect, useRef, useState } from 'react'
 import '@/css/Main.css'
 import '@/css/Calendar.css'
 import ContactModal from '@/components/ContactModal';
-import profileImg1 from '@/images/profileImg1.jpg';
-import profileImg2 from '@/images/profileImg2.jpg';
 import Calendar from 'react-calendar';
 import Gallery from '@/components/Gallery';
-import Map from '@/components/Map';
 import naverMap from '@/images/naverMap.png';
 import kakaoNavi from '@/images/kakaoNavi.png';
 import tMap from '@/images/tMap.png';
@@ -18,24 +15,11 @@ import FadeInSection from '@/components/FadeInSection';
 import GuestBook from '@/components/GuestBook';
 import CommunicationSubModal from '@/components/CommunicationSubModal';
 import PasswordModal from '@/components/PasswordModal';
-import Image1 from '@/images/Image1.jpg';
-import Image2 from '@/images/Image2.jpg';
-import Image3 from '@/images/Image3.jpg';
-import Image4 from '@/images/Image4.jpg';
 import Image5 from '@/images/Image5.jpg';
-import Image6 from '@/images/Image6.jpg';
-import Image7 from '@/images/Image7.jpg';
-import Image8 from '@/images/Image8.jpg';
-import Image9 from '@/images/Image9.jpg';
-import Image10 from '@/images/Image10.jpg';
-import Image11 from '@/images/Image11.jpg';
-import Image12 from '@/images/Image12.jpg';
-import Image13 from '@/images/Image13.jpg';
 import Image99 from '@/images/Image99.jpg';
 import main from '@/images/main.jpg';
 import mainSb from '@/images/mainSb.jpg';
 import footer from '@/images/footer.jpg';
-import flower from '@/images/flower.png';
 import heart from '@/images/heart.png';
 import lock from '@/images/lock.png';
 import unlock from '@/images/unlock.png';
@@ -103,7 +87,10 @@ export const Main = ({ showIntro }) => {
   /**********************  갤러리  ********************/
   /****************************************************/
   const images = [
-    Image1, Image2, Image3, Image4, Image13, Image6, Image7, Image8, Image9, Image10, Image11, Image12
+    "/images/Image1.jpg", "/images/Image2.jpg", "/images/Image3.jpg", 
+    "/images/Image4.jpg", "/images/Image13.jpg", "/images/Image6.jpg", 
+    "/images/Image7.jpg", "/images/Image8.jpg", "/images/Image9.jpg", 
+    "/images/Image10.jpg", "/images/Image11.jpg", "/images/Image12.jpg"
   ];
 
   const prevImage = () => {
