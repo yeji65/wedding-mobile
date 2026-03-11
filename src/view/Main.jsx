@@ -507,13 +507,9 @@ export const Main = ({ showIntro }) => {
                   <img className="map-icon" src={bus} style={{ paddingRight: "6px" }} />
                   <span>버스</span>
                 </div>
-                <p>* 셔틀버스 : 수인분단선 수원시청역 9번출구 앞 <br />
+                <p>* 셔틀버스 : 수원시청역(수인분당선) 9번출구 앞 <br />
                   (정시기준 약 20분간격 운행)</p>
-                <p>[수원월드컵경기장, 동성중학교 하차]</p>
-                <p>80,99-2, 720-1, 1007-1, 3007, 3008, 4000, 4500,<br />
-                  7000, 7001, 8800</p>
-                <p>[수원월드컵경기장, 아름학교 하차] </p>
-                <p> 13-4</p>
+             
               </div>
             </FadeInSection>
             <FadeInSection>
